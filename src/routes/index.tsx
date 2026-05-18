@@ -22,7 +22,7 @@ function HeroSection() {
     <section
       className="noise-overlay relative min-h-screen flex items-center justify-start overflow-hidden"
       style={{
-        background: `linear-gradient(125deg, rgba(15,46,26,0.92) 0%, rgba(26,77,46,0.78) 50%, rgba(26,77,46,0.5) 100%), url('/images/hero.png') center/cover no-repeat`,
+        background: `linear-gradient(125deg, rgba(15,46,26,0.92) 0%, rgba(26,77,46,0.78) 50%, rgba(26,77,46,0.5) 100%), center/cover no-repeat`,
       }}
     >
       {/* Diagonal accent */}
