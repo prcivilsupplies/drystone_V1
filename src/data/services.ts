@@ -35,7 +35,7 @@ const services: Service[] = [
   },
   {
     id: 'flooring',
-    name: 'Hebel / AAC / Concrete Flooring',
+    name: 'Hebel / XCEM / AAC / Concrete Flooring',
     shortName: 'Concrete Flooring',
     tagline: 'Structural performance underfoot',
     description:
