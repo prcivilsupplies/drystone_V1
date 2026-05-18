@@ -40,7 +40,6 @@ function HeroSection() {
           className="text-white/20 text-xs tracking-[0.4em] uppercase"
           style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
         >
-          Hunter Valley NSW
         </span>
         <div className="w-px h-16 bg-white/20" />
       </div>
@@ -197,13 +196,6 @@ function AboutSection() {
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="relative">
-            <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
-              <img
-                src="/images/about.jpg"
-                alt="DryStone Construction team at work"
-                className="w-full h-full object-cover"
-              />
-            </div>
             <div
               className="absolute -bottom-6 -right-6 w-32 h-32 lg:w-48 lg:h-48 rounded-xl hidden sm:block"
               style={{ background: 'var(--amber)', opacity: 0.15 }}
@@ -212,7 +204,6 @@ function AboutSection() {
               <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" className="text-[#e67e22]">
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
               </svg>
-              <span className="text-xs font-semibold tracking-wider uppercase">Muswellbrook, NSW</span>
             </div>
           </div>
 

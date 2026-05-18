@@ -1,6 +1,6 @@
 # DryStone Construction
 
-Website for DryStone Construction — a premium construction company based in Muswellbrook, NSW, specialising in aluminium windows, Hebel/AAC/concrete flooring, wall cladding, and professional rendering across the Hunter Valley.
+Website for DryStone Construction — a premium construction company based in Sydney, NSW, specialising in aluminium windows, Hebel/AAC/concrete flooring, wall cladding, and professional rendering across some parts of nsW.
 
 ## Tech Stack
 

@@ -18,7 +18,7 @@ const services: Service[] = [
     shortName: 'Aluminium Windows',
     tagline: 'Precision-engineered frames for every build',
     description:
-      'Premium aluminium window systems supplied and professionally installed for residential and commercial projects across the Hunter Valley.',
+      'Premium aluminium window systems supplied and professionally installed for residential and commercial projects.',
     longDescription:
       'DryStone supplies and installs a full range of aluminium window systems — from slimline casement frames to large-format sliding and bi-fold configurations. We work directly with leading manufacturers to bring you durable, thermally broken profiles that meet Australian energy standards. Every install is measured, flashed, and finished to trade standard.',
     features: [
