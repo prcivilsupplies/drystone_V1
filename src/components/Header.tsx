@@ -43,9 +43,10 @@ export function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 shrink-0">
             <img
-              src="/images/logo-new.png"
+              src="/images/logo-main.png"
+              srcSet="/images/logo-main.png 1x, /images/logo-new1.png 2x"
               alt="DryStone Construction"
-              className="h-12 lg:h-16 w-auto object-contain"
+              className="h-16 lg:h-20 xl:h-24 w-auto object-contain"
             />
           </Link>
 
