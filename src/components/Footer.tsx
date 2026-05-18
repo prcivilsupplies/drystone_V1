@@ -93,7 +93,7 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-xs text-white/30">
-            © {new Date().getFullYear()} DryStone Construction. All rights reserved.
+            © 2023 PR Civil Supplies Pty Ltd Trading as DryStone. All rights reserved.
           </p>
           <p className="text-xs text-white/30">
             Muswellbrook NSW — ABN 00 000 000 000
