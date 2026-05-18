@@ -194,48 +194,33 @@ function AboutSection() {
   return (
     <section className="py-20 lg:py-32 relative overflow-hidden" style={{ background: '#f5f2ed' }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="relative">
-            <div
-              className="absolute -bottom-6 -right-6 w-32 h-32 lg:w-48 lg:h-48 rounded-xl hidden sm:block"
-              style={{ background: 'var(--amber)', opacity: 0.15 }}
-            />
-            <div className="absolute top-5 left-5 bg-[#0f2e1a] text-white px-4 py-2 rounded-full flex items-center gap-2">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" className="text-[#e67e22]">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-              </svg>
-            </div>
-          </div>
-
-          <div>
-            <span className="section-label">About DryStone</span>
-            <h2
-              className="mt-3 text-4xl lg:text-6xl font-black text-[#0f2e1a] leading-tight"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-            >
-              
-              <br />
-              Construction
-              <br />
-              Specialists
-            </h2>
-            <div className="w-12 h-1 bg-[#e67e22] mt-5 mb-6" />
-            <p className="text-[#5a5a56] leading-relaxed mb-5">
-              DryStone Construction has been delivering premium building solutions
-              to residential and commercial clients 3 years. We specialise in materials and systems that perform —
-              Hebel, AAC, aluminium and concrete — installed by tradespeople who
-              take genuine pride in their craft.
-            </p>
-            <p className="text-[#5a5a56] leading-relaxed">
-              From a single window replacement to a full external wall cladding
-              and render package, we bring the same attention to detail and
-              commitment to quality to every project.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link to="/contact" className="btn-primary">
-                Talk to Us
-              </Link>
-            </div>
+        <div className="w-full flex flex-col items-start">
+          <span className="section-label">About DryStone</span>
+          <h2
+            className="mt-3 text-4xl lg:text-6xl font-black text-[#0f2e1a] leading-tight"
+            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+          >
+            <br />
+            Construction
+            <br />
+            Specialists
+          </h2>
+          <div className="w-12 h-1 bg-[#e67e22] mt-5 mb-6" />
+          <p className="text-[#5a5a56] leading-relaxed mb-5">
+            DryStone Construction has been delivering premium building solutions
+            to residential and commercial clients 3 years. We specialise in materials and systems that perform —
+            Hebel, AAC, aluminium and concrete — installed by tradespeople who
+            take genuine pride in their craft.
+          </p>
+          <p className="text-[#5a5a56] leading-relaxed">
+            From a single window replacement to a full external wall cladding
+            and render package, we bring the same attention to detail and
+            commitment to quality to every project.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link to="/contact" className="btn-primary">
+              Talk to Us
+            </Link>
           </div>
         </div>
       </div>
