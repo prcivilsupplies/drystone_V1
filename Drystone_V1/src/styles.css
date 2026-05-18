@@ -1,0 +1,198 @@
+@import "tailwindcss" source("../");
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600&family=Playfair+Display:wght@400;700&display=swap');
+
+:root {
+  --forest: #1a4d2e;
+  --forest-dark: #0f2e1a;
+  --forest-light: #2a6b41;
+  --amber: #e67e22;
+  --amber-dark: #c0641a;
+  --stone: #d4cfc8;
+  --stone-light: #f0ece5;
+  --charcoal: #1c1c1a;
+  --charcoal-mid: #2e2e2a;
+  --text-muted: #8a8880;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Barlow', sans-serif;
+  line-height: 1.6;
+  color: var(--charcoal);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+/* Noise overlay for hero sections */
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Service card hover effect */
+.service-card {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.4s ease;
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 64px rgba(26, 77, 46, 0.15);
+}
+.service-card img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.service-card:hover img {
+  transform: scale(1.06);
+}
+
+/* Diagonal section divider */
+.diagonal-bottom {
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+}
+.diagonal-top {
+  clip-path: polygon(0 6%, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Stagger animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(-24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+.animate-fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+.animate-slide-right {
+  animation: slideRight 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+
+/* Nav link underline animation */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--amber);
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Button styles */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--amber);
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+.btn-primary:hover {
+  background: var(--amber-dark);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 13px 32px;
+  border: 2px solid rgba(255,255,255,0.6);
+  cursor: pointer;
+  transition: border-color 0.3s ease, background 0.3s ease;
+  text-decoration: none;
+}
+.btn-outline:hover {
+  border-color: #fff;
+  background: rgba(255,255,255,0.1);
+}
+
+/* Section label */
+.section-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+/* Form inputs */
+.form-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid #e0dbd4;
+  border-radius: 10px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.875rem;
+  color: #1c1c1a;
+  background: white;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+}
+.form-input:focus {
+  border-color: #1a4d2e;
+  box-shadow: 0 0 0 3px rgba(26, 77, 46, 0.08);
+}
+.form-input::placeholder {
+  color: #b0aba4;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--charcoal); }
+::-webkit-scrollbar-thumb { background: var(--forest); border-radius: 3px; }
