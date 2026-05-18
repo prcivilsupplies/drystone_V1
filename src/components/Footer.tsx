@@ -16,8 +16,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <img
-              src="/images/logo-main.png"
-              srcSet="/images/logo-main.png 1x, /images/logo-new1.png 2x"
+              src="/images/logo-new.png"
               alt="DryStone Construction"
               className="h-16 w-auto object-contain mb-5"
             />
