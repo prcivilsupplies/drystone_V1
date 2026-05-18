@@ -71,7 +71,7 @@ function ContactPage() {
       <section
         className="relative pt-32 pb-16 lg:pt-40 lg:pb-20 overflow-hidden"
         style={{
-          background: `linear-gradient(135deg, rgba(15,46,26,0.95) 0%, rgba(26,77,46,0.9) 100%), url('/images/contact.png') center/cover no-repeat`,
+          background: `linear-gradient(135deg, rgba(15,46,26,0.95) 0%, rgba(26,77,46,0.9) 100%), center/cover no-repeat`,
         }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
