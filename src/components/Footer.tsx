@@ -56,7 +56,7 @@ export function Footer() {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="tel:+61400000000"
+                  href="tel:+61481003030"
                   className="flex items-start gap-3 text-sm text-white/60 hover:text-white transition-colors group"
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="shrink-0 mt-0.5 text-[#e67e22]">
