@@ -45,7 +45,7 @@ export function Header() {
             <img
               src="/images/logo-new.png"
               alt="DryStone Construction"
-              className="h-16 lg:h-20 xl:h-24 w-auto object-contain"
+              className="h-18 lg:h-22 xl:h-26 w-auto object-contain"
             />
           </Link>
 
