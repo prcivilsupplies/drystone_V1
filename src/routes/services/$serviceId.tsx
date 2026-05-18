@@ -34,7 +34,7 @@ function ServicePage() {
               </svg>
               Back to Home
             </Link>
-            <span className="section-label">DryStone Construction</span>
+            <span className="section-label">    DryStone Construction</span>
             <h1
               className="mt-3 text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-tight"
               style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
