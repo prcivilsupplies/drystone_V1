@@ -201,9 +201,7 @@ function AboutSection() {
             style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
           >
             <br />
-            Construction
-            <br />
-            Specialists
+            Construction Specialists
           </h2>
           <div className="w-12 h-1 bg-[#e67e22] mt-5 mb-6" />
           <p className="text-[#5a5a56] leading-relaxed mb-5">
