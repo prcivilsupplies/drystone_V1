@@ -4,7 +4,7 @@ This document describes the architecture and conventions for the DryStone Constr
 
 ## Project Overview
 
-Marketing website for DryStone Construction (Muswellbrook NSW). Displays four core services with image-led design, and a contact/quote request form. No database, no authentication.
+Marketing website for DryStone Construction. Displays four core services with image-led design, and a contact/quote request form. No database, no authentication.
 
 ## Tech Stack
 
