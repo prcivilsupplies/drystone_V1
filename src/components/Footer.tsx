@@ -90,8 +90,8 @@ export function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-xs text-white/30, text-align-center">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-align-center">
+          <p className="text-xs text-white/30 text-align-center">
             © 2023 PR Civil Supplies Pty Ltd Trading as DryStone. All rights reserved.
           </p>
         </div>
