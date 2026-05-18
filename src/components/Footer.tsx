@@ -21,14 +21,13 @@ export function Footer() {
               className="h-16 w-auto object-contain mb-5"
             />
             <p className="text-white/60 text-sm leading-relaxed max-w-xs">
-              Premium construction solutions for the Hunter Valley and surrounds.
+              Premium construction solutions for some regions in NSW surrounds.
               Supply and installation you can build on.
             </p>
             <div className="mt-6 flex items-center gap-2 text-sm text-white/60">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="shrink-0 text-[#e67e22]">
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
               </svg>
-              Muswellbrook NSW — Hunter Valley
             </div>
           </div>
 
