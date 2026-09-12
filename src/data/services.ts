@@ -96,6 +96,52 @@ const services: Service[] = [
     galleryImages: ['/images/render.jpg'],
     color: '#1a4d2e',
   },
+  {
+    id: 'project-management',
+    name: 'Construction Project Management',
+    shortName: 'Project Management',
+    tagline: 'One experienced team from planning to handover',
+    description:
+      'Practical construction management that keeps your build coordinated, transparent and moving from pre-construction through to completion.',
+    longDescription:
+      'DryStone provides hands-on project management for residential construction and specialist building packages. We coordinate trades, suppliers, programmes and site activity, giving clients one clear point of contact throughout the build. Our practical site experience helps identify issues early, maintain quality and keep each stage focused on a successful handover.',
+    features: [
+      'Pre-construction planning and programme development',
+      'Trade, supplier and site coordination',
+      'Budget and progress tracking',
+      'Quality assurance at every key stage',
+      'Clear client communication and reporting',
+      'Completion, defects and handover coordination',
+    ],
+    image: '/images/project-management-wireframe.svg',
+    galleryImages: ['/images/project-management-wireframe.svg'],
+    color: '#b85f1b',
+  },
+  {
+    id: 'new-home-construction',
+    name: 'Architectural & Residential Home Construction',
+    shortName: 'Residential Construction',
+    tagline: 'Custom residential homes, built with detail and discipline',
+    description:
+      'End-to-end construction for custom residential homes, backed by the specialist systems and workmanship DryStone is known for.',
+    longDescription:
+      'DryStone delivers complete residential home construction as well as specialist trade services. After successfully building three residential homes, our team has commenced a new architectural residence that brings together our experience in structure, AAC systems, windows, finishes and site coordination. We work closely with homeowners and design teams to turn detailed plans into well-resolved, enduring residential homes.',
+    features: [
+      'Complete residential home construction',
+      'Architectural and custom residential builds',
+      'Planning, procurement and trade coordination',
+      'Hebel, AAC and concrete construction expertise',
+      'Window, cladding and rendering integration',
+      'Quality control through to final handover',
+    ],
+    image: '/images/new-home-exterior.jpeg',
+    galleryImages: [
+      '/images/new-home-exterior.jpeg',
+      '/images/new-home-interior.jpeg',
+      '/images/project-management-site.jpg',
+    ],
+    color: '#0f2e1a',
+  },
 ]
 
 export default services

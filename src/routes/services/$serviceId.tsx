@@ -12,7 +12,9 @@ export const Route = createFileRoute('/services/$serviceId')({
 
 function ServicePage() {
   const { service } = Route.useLoaderData()
-  const otherServices = services.filter((s) => s.id !== service.id)
+  const otherServices = services.filter(
+    (s) => s.id !== service.id && s.id !== 'new-home-construction',
+  )
 
   return (
     <div>
@@ -138,7 +140,9 @@ function ServicePage() {
             className="mt-3 text-3xl lg:text-5xl font-black text-[#0f2e1a] mb-10"
             style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
           >
-            Other Services
+            {service.id === 'new-home-construction'
+              ? 'Specialist Services'
+              : 'Other Services'}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {otherServices.map((s) => (

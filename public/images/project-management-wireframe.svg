@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Construction project management wireframe</title>
+  <desc id="desc">Two wireframe hands support a custom home surrounded by connected icons for planning, scheduling, people, costs, quality and handover.</desc>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="44%" r="75%">
+      <stop offset="0" stop-color="#25643e"/>
+      <stop offset=".55" stop-color="#123b23"/>
+      <stop offset="1" stop-color="#0b2515"/>
+    </radialGradient>
+    <radialGradient id="orb" cx="48%" cy="42%" r="58%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".12"/>
+      <stop offset=".72" stop-color="#ffffff" stop-opacity=".02"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="9" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#06150c" flood-opacity=".5"/>
+    </filter>
+    <style>
+      .wire{fill:none;stroke:#f3a052;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+      .fine{fill:none;stroke:#f3a052;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;opacity:.58}
+      .node{fill:#123b23;stroke:#f3a052;stroke-width:3}
+      .icon{fill:none;stroke:#fff;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+    </style>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <path d="M0 810C290 680 425 755 640 890S1125 1080 1600 790V1000H0z" fill="#071d10" opacity=".38"/>
+  <g opacity=".08" stroke="#fff">
+    <path d="M0 150h1600M0 300h1600M0 450h1600M0 600h1600M0 750h1600M200 0v1000M400 0v1000M600 0v1000M800 0v1000M1000 0v1000M1200 0v1000M1400 0v1000"/>
+  </g>
+
+  <text x="800" y="92" text-anchor="middle" fill="#f3a052" font-family="Barlow Condensed, sans-serif" font-size="25" font-weight="700" letter-spacing="7">FROM FIRST BRIEF TO FINAL HANDOVER</text>
+  <text x="800" y="157" text-anchor="middle" fill="#fff" font-family="Barlow Condensed, sans-serif" font-size="60" font-weight="800">Construction Project Management</text>
+  <text x="800" y="200" text-anchor="middle" fill="#fff" fill-opacity=".62" font-family="Barlow, sans-serif" font-size="22">Planning, people, programme, cost and quality — working as one system</text>
+
+  <circle cx="800" cy="527" r="275" fill="url(#orb)" stroke="#f3a052" stroke-opacity=".24" stroke-width="2"/>
+  <circle cx="800" cy="527" r="218" fill="none" stroke="#fff" stroke-opacity=".12" stroke-width="1.5" stroke-dasharray="7 12"/>
+
+  <g stroke="#f3a052" stroke-width="2" stroke-opacity=".48" fill="none">
+    <path d="M800 527L800 280M800 527L1038 355M800 527L1095 555M800 527L1005 752M800 527L595 752M800 527L505 555M800 527L562 355"/>
+  </g>
+
+  <g filter="url(#soft)">
+    <circle cx="800" cy="527" r="135" fill="#0d2f1b" stroke="#f3a052" stroke-width="4"/>
+    <path d="M705 527L800 445l95 82v94H705z" fill="none" stroke="#fff" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M684 533l116-103 116 103" fill="none" stroke="#f3a052" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="777" y="558" width="46" height="63" class="icon"/>
+    <rect x="726" y="548" width="34" height="30" class="icon"/>
+    <rect x="840" y="548" width="34" height="30" class="icon"/>
+  </g>
+
+  <g filter="url(#soft)">
+    <g transform="translate(800 280)">
+      <circle r="50" class="node"/><rect x="-22" y="-26" width="44" height="52" rx="4" class="icon"/><path d="M-10-9h20M-10 3h20M-10 15h14M-9-31h18v10H-9z" class="icon"/>
+      <text y="76" text-anchor="middle" fill="#fff" font-family="Barlow, sans-serif" font-size="17" font-weight="700">SCOPE</text>
+    </g>
+    <g transform="translate(1038 355)">
+      <circle r="50" class="node"/><rect x="-27" y="-23" width="54" height="49" rx="4" class="icon"/><path d="M-27-8h54M-15-31v16M15-31v16M-15 5h7M2 5h7M-15 17h7M2 17h7" class="icon"/>
+      <text y="76" text-anchor="middle" fill="#fff" font-family="Barlow, sans-serif" font-size="17" font-weight="700">PROGRAMME</text>
+    </g>
+    <g transform="translate(1095 555)">
+      <circle r="50" class="node"/><circle cx="-14" cy="-13" r="11" class="icon"/><circle cx="17" cy="-9" r="9" class="icon"/><path d="M-35 26c2-20 12-30 25-30s22 10 24 30M6 25c1-15 8-23 18-23s17 8 19 23" class="icon"/>
+      <text y="76" text-anchor="middle" fill="#fff" font-family="Barlow, sans-serif" font-size="17" font-weight="700">TRADES</text>
+    </g>
+    <g transform="translate(1005 752)">
+      <circle r="50" class="node"/><circle r="27" class="icon"/><path d="M0-17v34M11-11c-4-7-22-7-22 3 0 12 23 5 23 17 0 10-18 11-24 3" class="icon"/>
+      <text y="76" text-anchor="middle" fill="#fff" font-family="Barlow, sans-serif" font-size="17" font-weight="700">COST</text>
+    </g>
+    <g transform="translate(595 752)">
+      <circle r="50" class="node"/><path d="M0-31l28 11v20c0 20-12 32-28 39C-16 32-28 20-28 0v-20zM-14 1l10 10L16-11" class="icon"/>
+      <text y="76" text-anchor="middle" fill="#fff" font-family="Barlow, sans-serif" font-size="17" font-weight="700">QUALITY</text>
+    </g>
+    <g transform="translate(505 555)">
+      <circle r="50" class="node"/><path d="M-29 21h58M-22 21V-4L0-28 22-4v25M-9 21V3H9v18" class="icon"/>
+      <text y="76" text-anchor="middle" fill="#fff" font-family="Barlow, sans-serif" font-size="17" font-weight="700">SITE</text>
+    </g>
+    <g transform="translate(562 355)">
+      <circle r="50" class="node"/><path d="M-29 10l19 19 39-46M-24-23h29M-24-8h20" class="icon"/>
+      <text y="76" text-anchor="middle" fill="#fff" font-family="Barlow, sans-serif" font-size="17" font-weight="700">HANDOVER</text>
+    </g>
+  </g>
+
+  <g transform="translate(0 10)">
+    <path d="M50 846c94-96 195-145 294-146 75 0 127 39 188 55 77 21 142 5 209 42l45 26c20 12 24 35 12 52-13 19-36 21-57 12l-103-46c-17-8-35-4-55 3l-129 47c-85 31-160 31-246 6L50 852z" class="wire"/>
+    <path d="M51 818c101-82 192-122 275-122M154 806c90-63 161-91 218-86M268 849c99-43 168-61 230-42M403 884c88-21 154-35 235-43M532 755l-32 52M588 767l-30 65M646 785l-20 61M702 807l-15 55" class="fine"/>
+    <path d="M1550 846c-94-96-195-145-294-146-75 0-127 39-188 55-77 21-142 5-209 42l-45 26c-20 12-24 35-12 52 13 19 36 21 57 12l103-46c17-8 35-4 55 3l129 47c85 31 160 31 246 6l158-49z" class="wire"/>
+    <path d="M1549 818c-101-82-192-122-275-122M1446 806c-90-63-161-91-218-86M1332 849c-99-43-168-61-230-42M1197 884c-88-21-154-35-235-43M1068 755l32 52M1012 767l30 65M954 785l20 61M898 807l15 55" class="fine"/>
+  </g>
+
+  <g filter="url(#glow)" opacity=".75"><circle cx="800" cy="527" r="6" fill="#f3a052"/><circle cx="505" cy="555" r="4" fill="#f3a052"/><circle cx="1095" cy="555" r="4" fill="#f3a052"/></g>
+</svg>
