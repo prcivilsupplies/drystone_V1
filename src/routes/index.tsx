@@ -62,8 +62,8 @@ function HeroSection() {
           </h1>
 
           <p className="mt-6 text-lg text-white/70 leading-relaxed max-w-md animate-fade-up delay-200">
-            Premium supply and installation of aluminium windows, HEBEL/XCEM/AAC/concrete
-            flooring, HEBEL/AAC/concrete wall cladding and professional rendering.
+            Complete residential home construction, hands-on project management and
+            specialist building services — delivered by one experienced team.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4 animate-fade-up delay-300">
@@ -82,8 +82,8 @@ function HeroSection() {
           <div className="mt-16 flex flex-wrap gap-8 animate-fade-up delay-500">
             {[
               { value: '3+', label: 'Years Experience' },
-              { value: '20+', label: 'Projects Completed' },
-              { value: '4', label: 'Core Services' },
+              { value: '3', label: 'Homes Built' },
+              { value: '6', label: 'Construction Services' },
             ].map((stat) => (
               <div key={stat.label} className="flex flex-col gap-1">
                 <span
@@ -115,12 +115,13 @@ function ServiceCard({
   size,
 }: {
   service: (typeof services)[0]
-  size: 'large' | 'small' | 'wide'
+  size: 'large' | 'small' | 'wide' | 'tall'
 }) {
   const sizeClasses = {
     large: 'lg:col-span-7 min-h-[480px]',
     small: 'min-h-[220px]',
     wide: 'lg:col-span-12 min-h-[300px]',
+    tall: 'min-h-[480px]',
   }
 
   return (
@@ -172,8 +173,8 @@ function ServicesSection() {
             </h2>
           </div>
           <p className="text-[#6a6a66] max-w-sm text-sm leading-relaxed">
-            Four specialist services, one reliable team. We handle every stage
-            from supply through to finished installation.
+            Complete residential home construction, project management and four
+            specialist trade services — all delivered by one reliable team.
           </p>
         </div>
 
@@ -184,6 +185,10 @@ function ServicesSection() {
             <ServiceCard service={services[2]} size="small" />
           </div>
           <ServiceCard service={services[3]} size="wide" />
+          <ServiceCard service={services[4]} size="large" />
+          <div className="lg:col-span-5">
+            <ServiceCard service={services[5]} size="tall" />
+          </div>
         </div>
       </div>
     </section>
@@ -201,19 +206,19 @@ function AboutSection() {
             style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
           >
             <br />
-            Construction Specialists
+            Builders & Construction Specialists
           </h2>
           <div className="w-12 h-1 bg-[#e67e22] mt-5 mb-6" />
           <p className="text-[#5a5a56] leading-relaxed mb-5">
             DryStone Construction has been delivering premium building solutions
-            to residential and commercial clients 3 years. We specialise in materials and systems that perform —
-            Hebel, AAC, aluminium and concrete — installed by tradespeople who
-            take genuine pride in their craft.
+            to residential and commercial clients for three years. We have built
+            three homes and have now commenced a new architectural residence,
+            bringing our specialist trade knowledge to complete construction.
           </p>
           <p className="text-[#5a5a56] leading-relaxed">
-            From a single window replacement to a full external wall cladding
-            and render package, we bring the same attention to detail and
-            commitment to quality to every project.
+            From project planning and custom residential homes to windows, flooring,
+            cladding and rendering, we bring the same attention to detail and
+            commitment to quality to every stage of every project.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link to="/contact" className="btn-primary">
@@ -229,23 +234,23 @@ function AboutSection() {
 function WhyUsSection() {
   const points = [
     {
-      title: 'Expert Tradies',
-      body: 'Licensed and experienced installers who take pride in precision workmanship on every project.',
+      title: 'Completely Custom',
+      body: 'No catalogue plans or preset packages. Every home is shaped around your land, lifestyle, priorities and architectural vision.',
       iconPath: 'M9 11.24V7.5C9 6.12 10.12 5 11.5 5S14 6.12 14 7.5v3.74c1.21-.81 2-2.18 2-3.74C16 5.01 13.99 3 11.5 3S7 5.01 7 7.5c0 1.56.79 2.93 2 3.74zm9.84 4.63l-4.54-2.26c-.17-.07-.35-.11-.54-.11H13v-6c0-.83-.67-1.5-1.5-1.5S10 6.67 10 7.5v10.74l-3.43-.72c-.08-.01-.15-.03-.24-.03-.31 0-.59.13-.79.33l-.79.8 4.94 4.94c.27.27.65.44 1.06.44h6.79c.75 0 1.33-.55 1.44-1.28l.75-5.27c.01-.07.02-.14.02-.2 0-.62-.38-1.16-.91-1.38z',
     },
     {
-      title: 'Local & Reliable',
-      body: 'We know the region — and we show up on time, every time.',
+      title: 'Materials Chosen for You',
+      body: 'We select the best-fit materials for your design, performance goals and budget — not simply what suits a standard builder package.',
       iconPath: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z',
     },
     {
-      title: 'Quality Materials',
-      body: 'We partner with leading suppliers — Hebel, AAC, Bison, XCEM — so you get products built to last.',
+      title: 'Specialist Knowledge',
+      body: 'Our hands-on experience with Hebel, AAC, concrete, windows, cladding and finishes brings specialist thinking to the whole home.',
       iconPath: 'M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z',
     },
     {
-      title: 'Free Quotes',
-      body: "No obligation quotes with transparent, itemised pricing. Know exactly what you're paying for.",
+      title: 'Quality-Led Delivery',
+      body: 'We coordinate every detail from planning to handover, maintaining clear communication and a consistent standard across the build.',
       iconPath: 'M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z',
     },
   ]
@@ -253,7 +258,7 @@ function WhyUsSection() {
   return (
     <section className="py-20 lg:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="text-center mb-14">
+        <div className="text-center mb-10">
           <span className="section-label">Why Choose Us</span>
           <h2
             className="mt-3 text-4xl lg:text-6xl font-black text-[#0f2e1a]"
@@ -261,6 +266,25 @@ function WhyUsSection() {
           >
             The DryStone Difference
           </h2>
+        </div>
+
+        <div className="relative mb-10 overflow-hidden rounded-2xl bg-[#0f2e1a] px-7 py-8 text-white lg:px-12 lg:py-10">
+          <div className="absolute inset-y-0 left-0 w-1.5 bg-[#e67e22]" />
+          <div className="relative grid gap-4 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-12">
+            <h3
+              className="text-3xl font-black leading-tight lg:text-4xl"
+              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            >
+              Your home should not look like everyone else&rsquo;s.
+            </h3>
+            <p className="text-sm leading-relaxed text-white/70 lg:text-base">
+              DryStone builds genuinely custom residential homes. Instead of fitting you
+              into a standard plan or fixed selection schedule, we listen to how
+              you want to live, work with your design and choose materials that
+              best meet your needs. The result is a considered, one-off home
+              delivered with care, craft and lasting quality.
+            </p>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

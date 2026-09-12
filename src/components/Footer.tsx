@@ -6,6 +6,7 @@ export function Footer() {
     { label: 'Concrete Flooring', to: '/services/flooring' },
     { label: 'Wall Cladding', to: '/services/wall-cladding' },
     { label: 'Professional Rendering', to: '/services/rendering' },
+    { label: 'Project Management', to: '/services/project-management' },
   ]
 
   return (
@@ -21,8 +22,8 @@ export function Footer() {
               className="h-16 w-auto object-contain mb-5"
             />
             <p className="text-white/60 text-sm leading-relaxed max-w-xs">
-              Premium construction solutions for some regions in NSW surrounds.
-              Supply and installation you can build on.
+              Residential home construction, project management and specialist
+              building services for clients across NSW.
             </p>
             <div className="mt-6 flex items-center gap-2 text-sm text-white/60">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="shrink-0 text-[#e67e22]">
