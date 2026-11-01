@@ -65,24 +65,24 @@ export function Header() {
           <nav className="hidden xl:flex items-center gap-5 xl:gap-8">
             <Link
               to="/"
-              className={`nav-link text-xs font-semibold tracking-wider uppercase text-white/90 hover:text-white transition-colors duration-200 ${
+              className={`nav-link text-xs font-semibold tracking-normal text-white/90 hover:text-white transition-colors duration-200 ${
                 currentPath === '/' ? 'active text-white' : ''
               }`}
             >
               Home
             </Link>
 
-            <Link to="/services/$serviceId" params={{ serviceId: "new-home-construction" }} className={`nav-link text-xs font-semibold tracking-wider uppercase text-white/90 hover:text-white ${currentPath === '/services/new-home-construction' ? 'active text-white' : ''}`}>
-              New Homes
+            <Link to="/services/$serviceId" params={{ serviceId: "new-home-construction" }} className={`nav-link text-xs font-semibold tracking-normal text-white/90 hover:text-white ${currentPath === '/services/new-home-construction' ? 'active text-white' : ''}`}>
+              New homes
             </Link>
-            <Link to="/services/$serviceId" params={{ serviceId: "project-management" }} className={`nav-link text-xs font-semibold tracking-wider uppercase text-white/90 hover:text-white ${currentPath === '/services/project-management' ? 'active text-white' : ''}`}>
-              Project Management
+            <Link to="/services/$serviceId" params={{ serviceId: "project-management" }} className={`nav-link text-xs font-semibold tracking-normal text-white/90 hover:text-white ${currentPath === '/services/project-management' ? 'active text-white' : ''}`}>
+              Project management
             </Link>
 
             <div className="group relative py-8">
               <a
                 href="/#services"
-                className={`nav-link flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase text-white/90 hover:text-white transition-colors duration-200 ${
+                className={`nav-link flex items-center gap-1.5 text-xs font-semibold tracking-normal text-white/90 hover:text-white transition-colors duration-200 ${
                   isServiceMenuActive ? 'active text-white' : ''
                 }`}
                 aria-haspopup="true"
@@ -109,7 +109,7 @@ export function Header() {
 
             <Link
               to="/contact"
-              className={`nav-link text-xs font-semibold tracking-wider uppercase text-white/90 hover:text-white ${currentPath === '/contact' ? 'active text-white' : ''}`}
+              className={`nav-link text-xs font-semibold tracking-normal text-white/90 hover:text-white ${currentPath === '/contact' ? 'active text-white' : ''}`}
             >
               Contact
             </Link>
@@ -156,22 +156,22 @@ export function Header() {
         }`}
       >
         <nav className="flex flex-col px-6 py-4 gap-1">
-          <Link to="/" className="py-3 text-xs font-semibold tracking-wider uppercase text-white/80 hover:text-white border-b border-white/5 transition-colors">
+          <Link to="/" className="py-3 text-xs font-semibold tracking-normal text-white/80 hover:text-white border-b border-white/5 transition-colors">
             Home
           </Link>
           <Link
             to="/services/$serviceId" params={{ serviceId: "new-home-construction" }}
-            className="border-b border-white/5 py-3 text-xs font-semibold tracking-wider uppercase text-white/80 transition-colors hover:text-white"
+            className="border-b border-white/5 py-3 text-xs font-semibold tracking-normal text-white/80 transition-colors hover:text-white"
           >
-            New Homes
+            New homes
           </Link>
           <Link
             to="/services/$serviceId" params={{ serviceId: "project-management" }}
-            className="border-b border-white/5 py-3 text-xs font-semibold tracking-wider uppercase text-white/80 transition-colors hover:text-white"
+            className="border-b border-white/5 py-3 text-xs font-semibold tracking-normal text-white/80 transition-colors hover:text-white"
           >
-            Project Management
+            Project management
           </Link>
-          <a onClick={() => setMenuOpen(false)} href="/#services" className="pt-4 pb-2 text-xs font-bold tracking-[0.2em] uppercase text-[#e67e22]">
+          <a onClick={() => setMenuOpen(false)} href="/#services" className="pt-4 pb-2 text-xs font-bold tracking-normal text-[#e67e22]">
             Services
           </a>
           {serviceMenuItems.map((service) => (
@@ -184,7 +184,7 @@ export function Header() {
             </Link>
           ))}
           {navLinks.slice(1).map((link) => (
-            <Link key={link.to} to={link.to} className="py-3 text-xs font-semibold tracking-wider uppercase text-white/80 hover:text-white border-b border-white/5 transition-colors">
+            <Link key={link.to} to={link.to} className="py-3 text-xs font-semibold tracking-normal text-white/80 hover:text-white border-b border-white/5 transition-colors">
               {link.label}
             </Link>
           ))}
@@ -192,7 +192,7 @@ export function Header() {
             href="tel:+61481003030"
             className="mt-4 btn-primary text-sm text-center justify-center"
           >
-            Call Us Now
+            Call us now
           </a>
         </nav>
       </div>

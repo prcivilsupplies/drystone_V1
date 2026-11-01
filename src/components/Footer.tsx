@@ -30,7 +30,7 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="section-label mb-5">Our Services</h4>
+            <h4 className="section-label mb-5">Our services</h4>
             <ul className="space-y-3">
               {services.map((s) => (
                 <li key={s.id}>
@@ -49,7 +49,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="section-label mb-5">Get In Touch</h4>
+            <h4 className="section-label mb-5">Get in touch</h4>
             <ul className="space-y-4">
               <li>
                 <a
@@ -78,7 +78,7 @@ export function Footer() {
                   to="/contact"
                   className="mt-2 btn-primary text-xs px-4 py-2.5 inline-flex"
                 >
-                  Request a Quote
+                  Request a quote
                 </Link>
               </li>
             </ul>

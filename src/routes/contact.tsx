@@ -85,13 +85,13 @@ function ContactPage() {
         }}
       >
         <div className="page-width">
-          <span className="section-label">Get in Touch</span>
+          <span className="section-label">Get in touch</span>
           <h1
             className="mt-3 text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-tight"
           >
-            Let's talk about
+            Let’s discuss
             <br />
-            <em>your next chapter.</em>
+            <em>your project.</em>
           </h1>
           <p className="mt-4 text-white/80 max-w-md leading-relaxed">
             Tell us about your project and we'll get back to you with a clear,
@@ -108,11 +108,11 @@ function ContactPage() {
             {/* Contact details */}
             <div className="lg:col-span-1 space-y-8">
               <div>
-                <span className="section-label">Direct Contact</span>
+                <span className="section-label">Direct contact</span>
                 <h2
                   className="mt-3 text-2xl lg:text-3xl font-black text-[#0f2e1a]"
                 >
-                  We'd love to hear from you
+                  Speak with our team
                 </h2>
                 <div className="w-10 h-1 bg-[#e67e22] mt-4" />
               </div>
@@ -142,7 +142,7 @@ function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <div className="text-xs font-semibold tracking-widest uppercase text-[#8a8880] mb-0.5">
+                      <div className="text-xs font-semibold tracking-normal text-[#8a8880] mb-0.5">
                         {item.label}
                       </div>
                       {item.href ? (
@@ -184,12 +184,12 @@ function ContactPage() {
                   <h2
                     className="text-2xl font-black text-[#0f2e1a] mb-6"
                   >
-                    Tell us about your project
+                    Your project details
                   </h2>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
                     <FormField
-                      label="Full Name"
+                      label="Full name"
                       required
                       error={errors.name}
                     >
@@ -204,7 +204,7 @@ function ContactPage() {
                       />
                     </FormField>
 
-                    <FormField label="Phone Number" error={errors.contact}>
+                    <FormField label="Phone number" error={errors.contact}>
                       <input
                         type="tel"
                         name="phone"
@@ -218,7 +218,7 @@ function ContactPage() {
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
-                    <FormField label="Email Address">
+                    <FormField label="Email address">
                       <input
                         type="email"
                         name="email"
@@ -230,7 +230,7 @@ function ContactPage() {
                       />
                     </FormField>
 
-                    <FormField label="Service Required" required error={errors.service}>
+                    <FormField label="Service required" required error={errors.service}>
                       <select
                         name="service"
                         value={form.service}
@@ -247,7 +247,7 @@ function ContactPage() {
                     </FormField>
                   </div>
 
-                  <FormField label="Project Details" required error={errors.message}>
+                  <FormField label="Project details" required error={errors.message}>
                     <textarea
                       name="message"
                       value={form.message}
@@ -277,7 +277,7 @@ function ContactPage() {
                       </>
                     ) : (
                       <>
-                        Send Enquiry
+                        Send enquiry
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                           <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
                         </svg>
@@ -311,7 +311,7 @@ function FormField({
 }) {
   return (
     <label className="flex flex-col gap-2">
-      <span className="text-xs font-semibold tracking-wider uppercase text-[#4a4a46]">
+      <span className="text-xs font-semibold tracking-normal text-[#4a4a46]">
         {label}
         {required && <span className="text-[#e67e22] ml-1">*</span>}
       </span>
@@ -335,7 +335,7 @@ function SuccessMessage() {
       <h2
         className="text-3xl font-black text-[#0f2e1a] mb-3"
       >
-        Enquiry Sent!
+        Enquiry sent
       </h2>
       <p className="text-[#5a5a56] max-w-sm leading-relaxed text-sm">
         Thanks for reaching out. The DryStone team will review your project

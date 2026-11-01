@@ -548,44 +548,55 @@ textarea.form-input { min-height: 155px; }
  .footer-signature > p { margin-top: 24px; font-size: 24px; }
 }
 
-/* A single geometric type family, echoing the DryStone wordmark. */
-body { font-size: 13px; line-height: 1.9; }
+/* One brand family, with restrained headings and comfortable reading rhythm. */
+body { font-size: 14px; line-height: 1.85; letter-spacing: 0; font-synthesis: none; }
 button, input, select, textarea { font-family: var(--brand-font); }
-h1, h2, h3, h4 { font-weight: 400; line-height: 1.35; letter-spacing: -.035em; overflow-wrap: anywhere; }
+h1, h2, h3, h4 { font-weight: 400; line-height: 1.4; letter-spacing: -.025em; overflow-wrap: anywhere; text-wrap: balance; }
+p { text-wrap: pretty; }
 em, .hero-second-line { font-style: normal; }
-.showcase h1 { font-size: clamp(38px,4.5vw,66px); line-height: 1.35; max-width: 1000px; }
-.showcase-description { max-width: 470px; font-size: 13px; }
-.home-redesign h2, .management-journey h2 { font-size: clamp(28px,3vw,43px); line-height: 1.4; }
-.eyebrow, .section-label { font-size: 9px; letter-spacing: .12em; line-height: 1.8; }
-.home-redesign .btn-primary, .btn-primary, .btn-outline { font-size: 10px; font-weight: 400; letter-spacing: .06em; }
-.site-header .nav-link { font-size: 9px; letter-spacing: .04em; }
-.site-header .header-phone { font-size: 9px; padding-inline: 14px; }
-.slide-tabs button { font-size: 9px; letter-spacing: .02em; }
-.assurance-strip .page-width { font-size: 9px; }
+.showcase h1 { font-size: clamp(34px,4vw,58px); line-height: 1.4; max-width: 1000px; }
+.showcase-description { max-width: 530px; font-size: 14px; line-height: 1.9; margin-block: 30px 36px; }
+.home-redesign h2, .management-journey h2 { font-size: clamp(27px,2.7vw,39px); line-height: 1.5; }
+.eyebrow, .section-label { font-size: 10px; font-weight: 400; letter-spacing: .04em; line-height: 1.8; text-transform: none; }
+.home-redesign .btn-primary, .btn-primary, .btn-outline { font-size: 11px; font-weight: 400; letter-spacing: .01em; text-transform: none; line-height: 1.8; }
+.site-header .nav-link { font-size: 11px; letter-spacing: .01em; }
+.site-header .header-phone { font-size: 10px; padding-inline: 14px; }
+.site-header nav a { letter-spacing: .01em; }
+.slide-tabs button { font-size: 10px; letter-spacing: .01em; text-transform: none; }
+.scroll-note { text-transform: none; letter-spacing: .02em; }
+.assurance-strip .page-width { font-size: 10px; letter-spacing: 0; }
 .collection-caption h3 { font-size: 18px; line-height: 1.6; }
-.collection-caption p { font-size: 10px; }
-.heading-aside p, .story-copy > p:not(.eyebrow), .management-feature-copy > p:not(.eyebrow) { font-size: 12px; line-height: 2; }
-.text-link { font-size: 10px; }
-.project-banner-copy h3 { font-size: clamp(28px,3.3vw,47px); line-height: 1.4; }
-.process-step h3, .journey-stages h3 { font-size: 18px; line-height: 1.6; }
-.process-step p, .journey-stages p { font-size: 11px; }
-.enquiry-section h2 { font-size: clamp(33px,4vw,57px); }
-.management-scopes h3 { font-size: 23px; line-height: 1.5; }
-.service-hero h1 { font-size: clamp(31px,3.5vw,52px); line-height: 1.4; }
-.service-detail-grid h2, .related-services h2 { font-size: clamp(26px,2.5vw,38px); line-height: 1.5; }
-.service-detail-grid h3 { font-size: 20px; }
-.service-detail-grid li { font-size: 12px; }
-.service-detail-grid p { font-size: 12px; line-height: 2; }
+.collection-caption p { font-size: 12px; line-height: 1.85; }
+.collection-tag, .image-label { text-transform: none; letter-spacing: .02em; }
+.heading-aside { max-width: 400px; }
+.heading-aside p, .story-copy > p:not(.eyebrow), .management-feature-copy > p:not(.eyebrow), .process-intro { font-size: 14px; line-height: 1.9; letter-spacing: 0; max-width: 55ch; }
+.story-copy > p:not(.eyebrow) { margin-top: 26px; }
+.text-link { font-size: 11px; font-weight: 400; letter-spacing: 0; }
+.project-banner-copy h3 { font-size: clamp(26px,3vw,42px); line-height: 1.5; }
+.process-step h3, .journey-stages h3 { font-size: 17px; line-height: 1.6; }
+.process-step p, .journey-stages p { font-size: 13px; line-height: 1.9; }
+.enquiry-section h2 { font-size: clamp(30px,3.5vw,49px); }
+.management-scopes h3 { font-size: 21px; line-height: 1.6; }
+.service-hero h1 { font-size: clamp(29px,3.2vw,46px); line-height: 1.5; }
+.service-hero p { max-width: 55ch; line-height: 1.9; }
+.service-detail-grid h2, .related-services h2 { font-size: clamp(25px,2.3vw,35px); line-height: 1.5; }
+.service-detail-grid h3 { font-size: 19px; }
+.service-detail-grid li { font-size: 13px; line-height: 1.85; }
+.service-detail-grid p { font-size: 14px; line-height: 1.9; max-width: 60ch; }
+.service-detail-grid .space-y-4 > p, .service-detail-grid figcaption p { font-size: 12px; line-height: 1.85; }
 .related-services .service-card h3 { font-size: 19px; line-height: 1.6; }
-.service-enquiry h2 { font-size: clamp(32px,3.7vw,53px); }
-.contact-hero h1 { font-size: clamp(31px,3.5vw,50px); line-height: 1.5; }
-.contact-main h2 { font-size: 24px; line-height: 1.5; }
-.contact-main label > span:first-child { font-size: 9px; }
-.form-input { font-size: 12px; }
-.footer-signature > span { font-size: clamp(32px,5vw,72px); letter-spacing: .05em; }
+.service-enquiry h2 { font-size: clamp(29px,3.3vw,47px); }
+.service-enquiry p { max-width: 60ch; }
+.contact-hero h1 { font-size: clamp(29px,3.2vw,46px); line-height: 1.5; }
+.contact-hero p { max-width: 55ch; line-height: 1.9; }
+.contact-main h2 { font-size: 23px; line-height: 1.6; }
+.contact-main label > span:first-child { font-size: 11px; letter-spacing: 0; }
+.form-input { font-size: 14px; line-height: 1.8; letter-spacing: 0; }
+.footer-signature > span { font-size: clamp(32px,5vw,72px); letter-spacing: .03em; }
 .footer-signature > p { font-size: 16px; line-height: 1.8; }
-.site-footer li a { font-size: 10px; }
-.site-footer p { font-size: 11px; }
+.site-footer .section-label { font-size: 11px; letter-spacing: .03em; }
+.site-footer li a { font-size: 12px; line-height: 1.9; }
+.site-footer p { font-size: 12px; line-height: 1.9; }
 .project-faq { background: #f5f2ed; }
 .faq-list { border-top: 1px solid #c2c9bd; }
 .faq-list details { border-bottom: 1px solid #c2c9bd; padding: 25px 0; }
@@ -596,21 +607,26 @@ em, .hero-second-line { font-style: normal; }
 @media (max-width: 1279px) { .site-header .header-phone { display: none; } }
 @media (max-width: 640px) {
  .showcase { min-height: 830px; }
- .showcase h1 { font-size: clamp(27px,7.5vw,36px); line-height: 1.5; }
- .showcase .eyebrow { max-width: 290px; font-size: 8px; }
- .showcase-description { max-width: 310px; font-size: 12px; }
+ .showcase h1 { font-size: clamp(24px,6.8vw,32px); line-height: 1.5; }
+ .showcase .eyebrow { max-width: 320px; font-size: 10px; letter-spacing: .02em; }
+ .showcase-description { max-width: 36ch; font-size: 13px; }
  .showcase-content { padding-block: 140px 170px; }
  .slide-tabs button { font-size: 0; }
- .assurance-strip .page-width { font-size: 8px; }
- .home-redesign h2, .story-copy h2, .management-feature h2 { font-size: 28px; }
+ .assurance-strip .page-width { font-size: 10px; }
+ .home-redesign h2, .story-copy h2, .management-feature h2, .management-journey h2 { font-size: clamp(23px,5.8vw,28px); }
  .collection-caption h3 { font-size: 18px; }
  .project-banner-copy h3 { font-size: 27px; }
- .enquiry-section h2 { font-size: 32px; }
- .service-hero h1 { font-size: 29px; }
+ .enquiry-section h2 { font-size: 28px; }
+ .service-hero h1 { font-size: clamp(24px,6vw,29px); }
  .service-detail-grid h2 { font-size: 26px; }
  .management-scopes h3 { font-size: 20px; }
- .contact-hero h1 { font-size: 29px; max-width: 340px; }
- .contact-main h2 { font-size: 22px; }
+ .contact-hero h1 { font-size: clamp(25px,6vw,29px); max-width: 360px; }
+ .contact-main h2 { font-size: 21px; }
+ .form-input { font-size: 16px; }
+ .heading-aside p, .story-copy > p:not(.eyebrow), .management-feature-copy > p:not(.eyebrow), .service-detail-grid p { font-size: 13px; }
+ .process-grid { grid-template-columns: 1fr; }
+ .process-step p { max-width: 40ch; }
+ .management-feature .eyebrow, .project-banner-copy .eyebrow { font-size: 10px; letter-spacing: .02em; }
  .footer-signature > span { font-size: clamp(25px,8vw,35px); }
  .footer-signature > p { font-size: 14px; }
 }

@@ -37,12 +37,12 @@ function ServicePage() {
           <div className="max-w-2xl">
             <Link
               to="/"
-              className="inline-flex items-center gap-2 text-white/50 hover:text-white text-xs tracking-widest uppercase font-semibold mb-6 transition-colors"
+              className="inline-flex items-center gap-2 text-white/50 hover:text-white text-xs tracking-normal font-semibold mb-6 transition-colors"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
               </svg>
-              Back to Home
+              Back to home
             </Link>
             <span className="section-label">    DryStone Construction</span>
             <h1
@@ -109,7 +109,7 @@ function ServicePage() {
 
             {/* Details */}
             <div className="lg:sticky lg:top-28">
-              <span className="section-label">Service Detail</span>
+              <span className="section-label">Service details</span>
               <h2
                 className="mt-3 text-3xl lg:text-5xl font-black text-[#0f2e1a] leading-tight"
               >
@@ -124,7 +124,7 @@ function ServicePage() {
                 className="text-lg font-bold text-[#0f2e1a] mb-4"
 
               >
-                What's Included
+                What’s included
               </h3>
               <ul className="space-y-3 mb-10">
                 {service.features.map((feature) => (
@@ -145,10 +145,10 @@ function ServicePage() {
 
               <div className="flex flex-wrap gap-4">
                 <Link to="/contact" search={{ service: service.id }} className="btn-primary">
-                  Get a Quote
+                  Get a quote
                 </Link>
                 <a href="tel:+61481003030" className="btn-primary" style={{ background: 'var(--forest)' }}>
-                  Call Us
+                  Call us
                 </a>
               </div>
             </div>
@@ -161,13 +161,13 @@ function ServicePage() {
       {/* Other Services */}
       <section className="related-services section-space" style={{ background: '#f5f2ed' }}>
         <div className="page-width">
-          <span className="section-label">Also Available</span>
+          <span className="section-label">Also available</span>
           <h2
             className="mt-3 text-3xl lg:text-5xl font-black text-[#0f2e1a] mb-10"
           >
             {service.id === 'new-home-construction'
-              ? 'Specialist Services'
-              : 'Other Services'}
+              ? 'Specialist services'
+              : 'Other services'}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {otherServices.map((s) => (
@@ -189,8 +189,8 @@ function ServicePage() {
                     {s.name}
                   </h3>
                   <div className="flex items-center gap-2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="text-xs font-bold tracking-widest uppercase text-[#e67e22]">
-                      View Service
+                    <span className="text-xs font-bold tracking-normal text-[#e67e22]">
+                      View service
                     </span>
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" className="text-[#e67e22]">
                       <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
@@ -209,7 +209,7 @@ function ServicePage() {
         style={{ background: 'linear-gradient(135deg, #0f2e1a 0%, #1a4d2e 100%)' }}
       >
         <div className="page-width">
-          <span className="section-label">Ready to Start?</span>
+          <span className="section-label">Ready to start?</span>
           <h2
             className="mt-3 text-3xl lg:text-5xl font-black text-white"
           >
