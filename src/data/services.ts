@@ -8,6 +8,13 @@ export interface Service {
   features: string[]
   image: string
   galleryImages: string[]
+  imageExamples?: {
+    image: string
+    alt: string
+    caption: string
+    sourceName: string
+    sourceUrl: string
+  }[]
   color: string
 }
 
@@ -41,17 +48,36 @@ const services: Service[] = [
     description:
       'Professional installation of internal and external wooden doors for new homes and renovations.',
     longDescription:
-      'DryStone installs internal and external wooden doors with careful attention to fit, alignment and everyday use. From room doors to front entrances, we measure the opening, fit and hang the door, and install the agreed hinges, handles and locking hardware. For external doors, we also consider thresholds and weather seals to suit the entrance. Whether you are completing a new build or replacing existing doors, our team focuses on a neat finish and smooth operation.',
+      'DryStone installs internal and external wooden doors with careful attention to fit, alignment and everyday use. Our service includes 2.4-metre-high internal doors and 3-metre-high pivot entry doors with flush cladding, with fitting requirements reviewed for each opening. We measure the opening, fit and hang the door, and install the agreed hinges, handles and locking hardware. For external doors, we also consider thresholds and weather seals to suit the entrance. Whether you are completing a new build or replacing existing doors, our team focuses on a neat finish and smooth operation.',
     features: [
-      'Internal timber room doors',
-      'External wooden entry doors',
+      '2.4-metre-high internal timber doors',
+      '3-metre-high pivot entry doors with flush cladding',
       'New builds and replacement installations',
       'Measuring, fitting and door alignment',
       'Hinge, handle and lock installation',
       'External threshold and weather-seal fitting',
     ],
-    image: '/images/wooden-doors.svg',
-    galleryImages: ['/images/wooden-doors.svg'],
+    image: '/images/wooden-pivot-door-example.webp',
+    galleryImages: [
+      '/images/wooden-pivot-door-example.webp',
+      '/images/wooden-internal-door-example.webp',
+    ],
+    imageExamples: [
+      {
+        image: '/images/wooden-pivot-door-example.webp',
+        alt: 'Tall dark timber pivot entrance with horizontal cladding aligned across the door and surrounding wall',
+        caption: 'Flush-clad pivot entrance — style example',
+        sourceName: 'Cedar West',
+        sourceUrl: 'https://cedarwest.com.au/timber-pivot-doors',
+      },
+      {
+        image: '/images/wooden-internal-door-example.webp',
+        alt: 'Residential entrance interior with a large timber entry door and a natural timber internal door on the right',
+        caption: 'Timber internal door and entry detailing — style example',
+        sourceName: 'Cedar West',
+        sourceUrl: 'https://cedarwest.com.au/timber-pivot-doors',
+      },
+    ],
     color: '#1a4d2e',
   },
   {

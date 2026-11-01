@@ -46,7 +46,7 @@ function HomePage() {
           {[...services].sort((a, b) => (a.id === 'new-home-construction' ? -1 : b.id === 'new-home-construction' ? 1 : 0)).map((service, i) => (
             <Link to="/services/$serviceId" params={{ serviceId: service.id }} key={service.id} className={`collection-card ${i === 0 ? 'collection-featured' : ''}`}>
               <div className="collection-image"><img src={service.id === 'project-management' ? '/images/project-management-site.jpg' : service.image} alt={service.shortName} loading="lazy" /><span className="collection-number">0{i + 1}</span><span className="collection-open"><ArrowUpRight size={23} /></span>{i === 0 && <span className="collection-tag">From concept to completion</span>}</div>
-              <div className="collection-caption"><div><h3>{service.shortName}</h3><p>{service.tagline}</p></div><ArrowUpRight size={20} /></div>
+              <div className="collection-caption"><div><h3>{service.shortName}</h3><p>{service.tagline}</p>{service.imageExamples && <p>Example photo · {service.imageExamples[0].sourceName}</p>}</div><ArrowUpRight size={20} /></div>
             </Link>
           ))}
         </div>

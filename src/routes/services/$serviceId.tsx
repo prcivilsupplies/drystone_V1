@@ -60,6 +60,25 @@ function ServicePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             {/* Gallery */}
             <div className="space-y-4">
+              {service.imageExamples ? (
+                <>
+                  <p className="text-sm leading-relaxed text-[#5a5a56]">
+                    Door style inspiration. These example photographs are from Cedar West, not DryStone projects; pictured dimensions are not verified.
+                  </p>
+                  {service.imageExamples.map((example) => (
+                    <figure key={example.image} className="overflow-hidden rounded-xl border border-[#e0dbd4]">
+                      <img src={example.image} alt={example.alt} loading="lazy" className="block w-full h-auto" />
+                      <figcaption className="bg-[#f5f2ed] px-5 py-4 text-sm text-[#0f2e1a]">
+                        <p>{example.caption}</p>
+                        <a href={example.sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-1 inline-block text-xs underline underline-offset-4">
+                          Photo source: {example.sourceName}
+                        </a>
+                      </figcaption>
+                    </figure>
+                  ))}
+                </>
+              ) : (
+                <>
               <div className="rounded-2xl overflow-hidden aspect-[4/3]">
                 <img
                   src={service.image}
@@ -79,6 +98,8 @@ function ServicePage() {
                     </div>
                   ))}
                 </div>
+              )}
+                </>
               )}
             </div>
 
