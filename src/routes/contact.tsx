@@ -1,27 +1,26 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useState } from 'react'
 import serviceData from '@/data/services'
+import { pageSeo } from '@/lib/seo'
 
 export const Route = createFileRoute('/contact')({
   component: ContactPage,
-  head: () => ({
-    meta: [
-      {
-        title: 'Contact DryStone Construction | Free Quote',
-      },
-    ],
+  validateSearch: (search: Record<string, unknown>): { service?: string } => ({
+    service: typeof search.service === 'string' && serviceData.some((item) => item.id === search.service) ? search.service : undefined,
   }),
+  head: () => pageSeo({ title: 'Request a Construction Quote in NSW | DryStone', description: 'Tell DryStone about your NSW building project. Enquire about residential construction, project management or specialist trade installation. Call 0481 003 030.', path: '/contact' }),
 })
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error'
 
 function ContactPage() {
+  const search = Route.useSearch()
   const [formState, setFormState] = useState<FormState>('idle')
   const [form, setForm] = useState({
     name: '',
     phone: '',
     email: '',
-    service: '',
+    service: serviceData.find((item) => item.id === search.service)?.name ?? '',
     message: '',
   })
   const [errors, setErrors] = useState<Record<string, string>>({})
@@ -49,6 +48,7 @@ function ContactPage() {
     >
   ) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    if (formState === 'error') setFormState('idle')
     if (errors[e.target.name]) {
       setErrors((prev) => ({ ...prev, [e.target.name]: '' }))
     }
@@ -58,9 +58,21 @@ function ContactPage() {
     e.preventDefault()
     if (!validate()) return
     setFormState('submitting')
-    // Simulate submission
-    await new Promise((r) => setTimeout(r, 1200))
-    setFormState('success')
+    const values = new FormData(e.currentTarget as HTMLFormElement)
+    values.set('source-page', window.location.pathname)
+    const params = new URLSearchParams(window.location.search)
+    for (const key of ['source', 'medium', 'campaign']) values.set(`utm-${key}`, params.get(`utm_${key}`) ?? '')
+    try {
+      const response = await fetch('/__forms.html', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(Array.from(values.entries()).map(([key, value]) => [key, String(value)])).toString(),
+      })
+      if (!response.ok) throw new Error('Submission not accepted')
+      setFormState('success')
+    } catch {
+      setFormState('error')
+    }
   }
 
   return (
@@ -155,9 +167,20 @@ function ContactPage() {
                 <SuccessMessage />
               ) : (
                 <form
+                  name="project-enquiry"
+                  method="POST"
+                  action="/__forms.html"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
                   onSubmit={handleSubmit}
                   className="enquiry-form bg-white p-8 lg:p-10"
                 >
+                  <input type="hidden" name="form-name" value="project-enquiry" />
+                  <input type="hidden" name="source-page" value="/contact" />
+                  <input type="hidden" name="utm-source" value="" />
+                  <input type="hidden" name="utm-medium" value="" />
+                  <input type="hidden" name="utm-campaign" value="" />
+                  <p hidden><label>Leave this empty <input name="bot-field" tabIndex={-1} autoComplete="off" /></label></p>
                   <h2
                     className="text-2xl font-black text-[#0f2e1a] mb-6"
                   >
@@ -173,6 +196,7 @@ function ContactPage() {
                       <input
                         type="text"
                         name="name"
+                        autoComplete="name"
                         value={form.name}
                         onChange={handleChange}
                         placeholder="Your full name"
@@ -184,6 +208,7 @@ function ContactPage() {
                       <input
                         type="tel"
                         name="phone"
+                        autoComplete="tel"
                         value={form.phone}
                         onChange={handleChange}
                         placeholder="04XX XXX XXX"
@@ -197,6 +222,7 @@ function ContactPage() {
                       <input
                         type="email"
                         name="email"
+                        autoComplete="email"
                         value={form.email}
                         onChange={handleChange}
                         placeholder="you@example.com"
@@ -236,6 +262,7 @@ function ContactPage() {
                     <p className="text-red-500 text-xs mt-1 mb-4">{errors.contact}</p>
                   )}
 
+                  {formState === 'error' && <p role="alert" className="form-error">We couldn’t send your enquiry. Your details are still here; please try again, or call <a href="tel:+61481003030">0481 003 030</a>.</p>}
                   <button
                     type="submit"
                     disabled={formState === 'submitting'}
@@ -259,7 +286,7 @@ function ContactPage() {
                   </button>
 
                   <p className="text-xs text-[#8a8880] mt-4 text-center">
-                    We'll get back to you within 24 hours. No spam, ever.
+                    Your details are used to respond to your project enquiry.
                   </p>
                 </form>
               )}
@@ -296,7 +323,7 @@ function FormField({
 
 function SuccessMessage() {
   return (
-    <div className="bg-white rounded-2xl p-10 shadow-sm flex flex-col items-center text-center">
+    <div role="status" className="bg-white rounded-2xl p-10 shadow-sm flex flex-col items-center text-center">
       <div
         className="w-16 h-16 rounded-full flex items-center justify-center mb-5"
         style={{ background: '#1a4d2e' }}
@@ -312,7 +339,7 @@ function SuccessMessage() {
       </h2>
       <p className="text-[#5a5a56] max-w-sm leading-relaxed text-sm">
         Thanks for reaching out. The DryStone team will review your project
-        details and be in touch within 24 hours.
+        details and be in touch. For anything urgent, call 0481 003 030.
       </p>
     </div>
   )

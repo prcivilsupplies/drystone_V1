@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from '@tanstack/react-router'
 import services from '@/data/services'
 import { ProjectJourney } from '@/components/ProjectJourney'
 import { ArrowUpRight } from 'lucide-react'
+import { pageSeo } from '@/lib/seo'
 
 export const Route = createFileRoute('/services/$serviceId')({
   component: ServicePage,
@@ -10,7 +11,11 @@ export const Route = createFileRoute('/services/$serviceId')({
     if (!service) throw notFound()
     return { service }
   },
-  head: ({ params }) => ({ meta: [{ title: `${services.find((service) => service.id === params.serviceId)?.shortName ?? 'Services'} | DryStone Construction` }] }),
+  head: ({ params }) => {
+    const service = services.find((item) => item.id === params.serviceId)
+    if (!service) return { meta: [{ title: 'Service not found | DryStone' }, { name: 'robots', content: 'noindex' }] }
+    return pageSeo({ title: `${service.shortName} NSW | DryStone`, description: `${service.description} Serving NSW.`, path: `/services/${service.id}`, image: service.image, service })
+  },
 })
 
 function ServicePage() {
@@ -139,7 +144,7 @@ function ServicePage() {
               </ul>
 
               <div className="flex flex-wrap gap-4">
-                <Link to="/contact" className="btn-primary">
+                <Link to="/contact" search={{ service: service.id }} className="btn-primary">
                   Get a Quote
                 </Link>
                 <a href="tel:+61481003030" className="btn-primary" style={{ background: 'var(--forest)' }}>
@@ -215,7 +220,7 @@ function ServicePage() {
             provide a clear, itemised quote with no obligation.
           </p>
           <div className="mt-8">
-            <Link to="/contact" className="btn-primary text-base px-8 py-4">
+            <Link to="/contact" search={{ service: service.id }} className="btn-primary text-base px-8 py-4">
               Discuss your project <ArrowUpRight size={18} />
             </Link>
           </div>

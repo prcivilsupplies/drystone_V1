@@ -62,7 +62,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-5 xl:gap-8">
+          <nav className="hidden xl:flex items-center gap-5 xl:gap-8">
             <Link
               to="/"
               className={`nav-link text-xs font-semibold tracking-wider uppercase text-white/90 hover:text-white transition-colors duration-200 ${
@@ -127,7 +127,7 @@ export function Header() {
               0481 003 030
             </a>
             <button
-              className="lg:hidden flex flex-col gap-1.5 p-2 cursor-pointer"
+              className="xl:hidden flex flex-col gap-1.5 p-2 cursor-pointer"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
@@ -151,7 +151,7 @@ export function Header() {
       <div
         id="mobile-navigation"
         inert={!menuOpen}
-        className={`lg:hidden overflow-hidden transition-all duration-400 bg-[#0f2e1a] ${
+        className={`xl:hidden overflow-hidden transition-all duration-400 bg-[#0f2e1a] ${
           menuOpen ? 'max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-white/10' : 'max-h-0 overflow-hidden'
         }`}
       >

@@ -1,48 +1,14 @@
 @import "tailwindcss" source("../");
 @font-face {
-  font-family: 'Barlow';
+  font-family: 'Michroma';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(/fonts/barlow-400-normal.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Barlow';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/fonts/barlow-500-normal.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Barlow';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(/fonts/barlow-600-normal.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Cormorant Garamond';
-  font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/fonts/cormorant-garamond-400-italic.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Cormorant Garamond';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/fonts/cormorant-garamond-400-normal.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Cormorant Garamond';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/fonts/cormorant-garamond-500-normal.ttf) format('truetype');
+  src: url('/fonts/michroma-400.ttf') format('truetype');
 }
 
 :root {
+  --brand-font: 'Michroma', sans-serif;
   --forest: #1a4d2e;
   --forest-dark: #0f2e1a;
   --forest-light: #2a6b41;
@@ -59,7 +25,7 @@
 
 body {
   margin: 0;
-  font-family: 'Barlow', sans-serif;
+  font-family: var(--brand-font);
   line-height: 1.6;
   color: var(--charcoal);
   background: #fff;
@@ -67,7 +33,7 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--brand-font);
   font-weight: 400;
   letter-spacing: -0.035em;
   line-height: 1.05;
@@ -164,7 +130,7 @@ h1, h2, h3, h4 {
   gap: 8px;
   background: var(--amber);
   color: #fff;
-  font-family: 'Barlow', sans-serif;
+  font-family: var(--brand-font);
   font-weight: 500;
   font-size: 0.75rem;
   letter-spacing: 0.04em;
@@ -186,7 +152,7 @@ h1, h2, h3, h4 {
   gap: 8px;
   background: transparent;
   color: #fff;
-  font-family: 'Barlow', sans-serif;
+  font-family: var(--brand-font);
   font-weight: 500;
   font-size: 0.75rem;
   letter-spacing: 0.04em;
@@ -204,7 +170,7 @@ h1, h2, h3, h4 {
 
 /* Section label */
 .section-label {
-  font-family: 'Barlow', sans-serif;
+  font-family: var(--brand-font);
   font-weight: 600;
   font-size: 0.65rem;
   letter-spacing: 0.2em;
@@ -218,7 +184,7 @@ h1, h2, h3, h4 {
   padding: 12px 14px;
   border: 1.5px solid #e0dbd4;
   border-radius: 0;
-  font-family: 'Barlow', sans-serif;
+  font-family: var(--brand-font);
   font-size: 0.875rem;
   color: #1c1c1a;
   background: white;
@@ -257,7 +223,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 110px; }
 .showcase h1 span { display: block; }
 .hero-second-line { color: var(--amber); font-style: italic; }
 .showcase-description { max-width: 380px; font-size: 17px; line-height: 1.7; color: rgba(255,255,255,.8); margin-block: 25px 30px; }
-.home-redesign .btn-primary { font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: .06em; padding: 18px 24px; justify-content: space-between; gap: 25px; }
+.home-redesign .btn-primary { font-family: var(--brand-font); font-size: 12px; font-weight: 600; letter-spacing: .06em; padding: 18px 24px; justify-content: space-between; gap: 25px; }
 .showcase-bottom { position: absolute; bottom: 103px; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; }
 .scroll-note { display: flex; align-items: center; gap: 28px; text-transform: uppercase; letter-spacing: .17em; font-size: 10px; }
 .scroll-note span { font-size: 22px; }
@@ -389,7 +355,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 110px; }
 @media (min-width: 1024px) { .header-phone { display: inline-flex; } }
 
 /* Architectural typography, restrained details and generous pacing. */
-:root { --display-font: 'Cormorant Garamond', Georgia, serif; }
+:root { --display-font: var(--brand-font); }
 body { background: #f5f2ed; }
 .home-redesign { background: #fff; }
 img { max-width: 100%; }
@@ -399,7 +365,7 @@ button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
 .btn-primary:disabled { cursor: wait; }
 .site-header { border-bottom: 1px solid #ffffff24; }
 .header-logo { height: 72px; }
-.site-header .header-phone { background: transparent; border: 1px solid #ffffff65; font-family: 'Barlow', sans-serif; font-size: 11px; padding: 13px 18px; }
+.site-header .header-phone { background: transparent; border: 1px solid #ffffff65; font-family: var(--brand-font); font-size: 11px; padding: 13px 18px; }
 .site-header .header-phone:hover { background: var(--forest); border-color: var(--amber); }
 .site-header .nav-link { font-size: 10px; font-weight: 500; letter-spacing: .14em; }
 .site-header nav[aria-label] { min-width: 0; }
@@ -414,7 +380,7 @@ button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
 .assurance-strip .page-width { padding-block: 20px; font-size: 11px; letter-spacing: .05em; }
 .section-space { padding-block: 115px; }
 .section-heading { margin-bottom: 55px; }
-.eyebrow, .section-label { font-family: 'Barlow', sans-serif; font-weight: 500; font-size: 10px; letter-spacing: .22em; }
+.eyebrow, .section-label { font-family: var(--brand-font); font-weight: 500; font-size: 10px; letter-spacing: .22em; }
 .collection-image { background: #f5f2ed; }
 .collection-number { background: var(--forest-dark); color: white; }
 .collection-open { border-radius: 50%; background: #f5f2ed; }
@@ -512,7 +478,7 @@ textarea.form-input { min-height: 155px; }
 .footer-signature { padding-block: 70px 45px; border-bottom: 1px solid #ffffff24; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
 .footer-signature > span { font-family: var(--display-font); font-size: clamp(55px,8vw,115px); letter-spacing: .06em; line-height: 1; color: #f5f2ed; }
 .footer-signature > p { font-family: var(--display-font); font-size: 26px; line-height: 1.2; color: #ffffffb3; }
-.site-footer .section-label { font-family: 'Barlow',sans-serif; font-size: 10px; letter-spacing: .17em; }
+.site-footer .section-label { font-family: var(--brand-font); font-size: 10px; letter-spacing: .17em; }
 .site-footer .btn-primary { background: transparent; border: 1px solid #ffffff65; }
 .site-footer .btn-primary:hover { border-color: var(--amber); }
 .skip-link { position: fixed; top: 10px; left: 10px; z-index: 100; padding: 12px 20px; background: #f5f2ed; color: var(--forest-dark); transform: translateY(-150%); }
@@ -580,4 +546,82 @@ textarea.form-input { min-height: 155px; }
  .footer-signature { padding-block: 45px 35px; display: block; }
  .footer-signature > span { font-size: clamp(48px,13vw,70px); }
  .footer-signature > p { margin-top: 24px; font-size: 24px; }
+}
+
+/* A single geometric type family, echoing the DryStone wordmark. */
+body { font-size: 13px; line-height: 1.9; }
+button, input, select, textarea { font-family: var(--brand-font); }
+h1, h2, h3, h4 { font-weight: 400; line-height: 1.35; letter-spacing: -.035em; overflow-wrap: anywhere; }
+em, .hero-second-line { font-style: normal; }
+.showcase h1 { font-size: clamp(38px,4.5vw,66px); line-height: 1.35; max-width: 1000px; }
+.showcase-description { max-width: 470px; font-size: 13px; }
+.home-redesign h2, .management-journey h2 { font-size: clamp(28px,3vw,43px); line-height: 1.4; }
+.eyebrow, .section-label { font-size: 9px; letter-spacing: .12em; line-height: 1.8; }
+.home-redesign .btn-primary, .btn-primary, .btn-outline { font-size: 10px; font-weight: 400; letter-spacing: .06em; }
+.site-header .nav-link { font-size: 9px; letter-spacing: .04em; }
+.site-header .header-phone { font-size: 9px; padding-inline: 14px; }
+.slide-tabs button { font-size: 9px; letter-spacing: .02em; }
+.assurance-strip .page-width { font-size: 9px; }
+.collection-caption h3 { font-size: 18px; line-height: 1.6; }
+.collection-caption p { font-size: 10px; }
+.heading-aside p, .story-copy > p:not(.eyebrow), .management-feature-copy > p:not(.eyebrow) { font-size: 12px; line-height: 2; }
+.text-link { font-size: 10px; }
+.project-banner-copy h3 { font-size: clamp(28px,3.3vw,47px); line-height: 1.4; }
+.process-step h3, .journey-stages h3 { font-size: 18px; line-height: 1.6; }
+.process-step p, .journey-stages p { font-size: 11px; }
+.enquiry-section h2 { font-size: clamp(33px,4vw,57px); }
+.management-scopes h3 { font-size: 23px; line-height: 1.5; }
+.service-hero h1 { font-size: clamp(31px,3.5vw,52px); line-height: 1.4; }
+.service-detail-grid h2, .related-services h2 { font-size: clamp(26px,2.5vw,38px); line-height: 1.5; }
+.service-detail-grid h3 { font-size: 20px; }
+.service-detail-grid li { font-size: 12px; }
+.service-detail-grid p { font-size: 12px; line-height: 2; }
+.related-services .service-card h3 { font-size: 19px; line-height: 1.6; }
+.service-enquiry h2 { font-size: clamp(32px,3.7vw,53px); }
+.contact-hero h1 { font-size: clamp(31px,3.5vw,50px); line-height: 1.5; }
+.contact-main h2 { font-size: 24px; line-height: 1.5; }
+.contact-main label > span:first-child { font-size: 9px; }
+.form-input { font-size: 12px; }
+.footer-signature > span { font-size: clamp(32px,5vw,72px); letter-spacing: .05em; }
+.footer-signature > p { font-size: 16px; line-height: 1.8; }
+.site-footer li a { font-size: 10px; }
+.site-footer p { font-size: 11px; }
+.project-faq { background: #f5f2ed; }
+.faq-list { border-top: 1px solid #c2c9bd; }
+.faq-list details { border-bottom: 1px solid #c2c9bd; padding: 25px 0; }
+.faq-list summary { cursor: pointer; font-size: 14px; line-height: 1.8; color: var(--forest-dark); padding-right: 25px; }
+.faq-list p { max-width: 800px; padding-top: 20px; font-size: 12px; color: #62675f; line-height: 2; }
+.form-error { border-left: 2px solid var(--amber); padding: 15px; margin-top: 20px; font-size: 12px; background: #f5f2ed; }
+.form-error a { color: var(--forest); text-decoration: underline; }
+@media (max-width: 1279px) { .site-header .header-phone { display: none; } }
+@media (max-width: 640px) {
+ .showcase { min-height: 830px; }
+ .showcase h1 { font-size: clamp(27px,7.5vw,36px); line-height: 1.5; }
+ .showcase .eyebrow { max-width: 290px; font-size: 8px; }
+ .showcase-description { max-width: 310px; font-size: 12px; }
+ .showcase-content { padding-block: 140px 170px; }
+ .slide-tabs button { font-size: 0; }
+ .assurance-strip .page-width { font-size: 8px; }
+ .home-redesign h2, .story-copy h2, .management-feature h2 { font-size: 28px; }
+ .collection-caption h3 { font-size: 18px; }
+ .project-banner-copy h3 { font-size: 27px; }
+ .enquiry-section h2 { font-size: 32px; }
+ .service-hero h1 { font-size: 29px; }
+ .service-detail-grid h2 { font-size: 26px; }
+ .management-scopes h3 { font-size: 20px; }
+ .contact-hero h1 { font-size: 29px; max-width: 340px; }
+ .contact-main h2 { font-size: 22px; }
+ .footer-signature > span { font-size: clamp(25px,8vw,35px); }
+ .footer-signature > p { font-size: 14px; }
+}
+@media (max-width: 640px) {
+ .scroll-note { font-size: 8px; letter-spacing: .06em; gap: 12px; white-space: nowrap; }
+ .scroll-note span { font-size: 17px; }
+ .slide-controls { gap: 6px; }
+ .slide-controls button { width: 34px; height: 34px; }
+ .slide-count { font-size: 10px; margin-right: 5px; white-space: nowrap; }
+ .slide-count span { margin-left: 4px; }
+}
+@media (max-width: 360px) {
+ .slide-count { display: none; }
 }

@@ -2,13 +2,17 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { useState } from 'react'
 import { ArrowUpRight, ArrowRight, ChevronLeft, ChevronRight, Check, Plus } from 'lucide-react'
 import services from '@/data/services'
+import { pageSeo } from '@/lib/seo'
 
-export const Route = createFileRoute('/')({ component: HomePage })
+export const Route = createFileRoute('/')({
+  component: HomePage,
+  head: () => pageSeo({ title: 'NSW Construction & Project Management | DryStone', description: 'Residential construction, project management, wooden doors, aluminium windows, flooring, cladding and rendering across NSW. Request a DryStone quote.', path: '/' }),
+})
 
 const slides = [
-  { image: '/images/new-home-exterior.jpeg', eyebrow: 'Residential construction · NSW', title: 'Considered design.\nExceptional builds.', text: 'From the first plans to the final details. Bring your vision home with DryStone.', link: '/services/new-home-construction', label: 'Explore new homes', caption: 'Architectural & residential construction' },
+  { image: '/images/new-home-exterior.jpeg', eyebrow: 'Residential construction & specialist services · NSW', title: 'Considered design.\nExceptional builds.', text: 'From the first plans to the final details. Bring your vision home with DryStone.', link: '/services/new-home-construction', label: 'Explore new homes', caption: 'Architectural & residential construction' },
   { image: '/images/new-home-interior.jpeg', eyebrow: 'Details that make the difference', title: 'Beautiful spaces.\nBuilt to last.', text: 'Windows, timber doors, flooring and finishes. Specialist workmanship at every stage.', link: '/#services', label: 'Discover our services', caption: 'Specialist building systems & finishes' },
-  { image: '/images/project-management-planning.webp', eyebrow: 'From planning to handover', title: 'Your vision.\nOur commitment.', text: 'Practical project management. Clear communication. One team bringing it all together.', link: '/services/project-management', label: 'Explore project management', caption: 'Construction project management' },
+  { image: '/images/project-management-drystone.webp', eyebrow: 'From planning to handover', title: 'Your vision.\nOur commitment.', text: 'Practical project management. Clear communication. One team bringing it all together.', link: '/services/project-management', label: 'Explore project management', caption: 'Construction project management' },
 ]
 
 function HomePage() {
@@ -41,7 +45,7 @@ function HomePage() {
       <div className="assurance-strip"><div className="page-width"><span>Built with care. Finished with pride.</span><span><Check size={15} /> Residential construction</span><span><Check size={15} /> Specialist trade services</span><span><Check size={15} /> Serving NSW</span></div></div>
 
       <section id="services" className="services-gallery page-width section-space">
-        <div className="section-heading"><div><p className="eyebrow">What we do</p><h2>Every detail.<br />Expertly delivered.</h2></div><div className="heading-aside"><p>Complete home construction and specialist building services. The right expertise for every part of your project.</p><a href="#service-collection" className="text-link">Explore our services <ArrowRight size={17} /></a></div></div>
+        <div className="section-heading"><div><p className="eyebrow">What we do</p><h2>Construction expertise.<br />Every detail delivered.</h2></div><div className="heading-aside"><p>Complete home construction and specialist building services. The right expertise for every part of your project.</p><a href="#service-collection" className="text-link">Explore our services <ArrowRight size={17} /></a></div></div>
         <div id="service-collection" className="service-collection">
           {[...services].sort((a, b) => (a.id === 'new-home-construction' ? -1 : b.id === 'new-home-construction' ? 1 : 0)).map((service, i) => (
             <Link to="/services/$serviceId" params={{ serviceId: service.id }} key={service.id} className={`collection-card ${i === 0 ? 'collection-featured' : ''}`}>
@@ -57,7 +61,7 @@ function HomePage() {
       <section className="management-feature section-space">
         <div className="page-width management-feature-grid">
           <div className="management-feature-copy"><p className="eyebrow">From the first plan to the final key</p><h2>Your project.<br /><em>In considered hands.</em></h2><p>Every build brings people, plans and decisions together. We coordinate the moving parts so you can see where your project stands and what comes next.</p><div className="management-options"><span>End-to-end residential management</span><span>Individual trade & service packages</span></div><Link to="/services/$serviceId" params={{ serviceId: 'project-management' }} className="text-link">Discover project management <ArrowUpRight size={18} /></Link></div>
-          <figure><img src="/images/project-management-planning.webp" alt="Construction professional reviewing architectural plans" loading="lazy" /><figcaption>Planning, coordination & delivery <span>Example photography · Unsplash</span></figcaption></figure>
+          <figure><img src="/images/project-management-drystone.webp" alt="Construction professional reviewing architectural plans" loading="lazy" /><figcaption>Planning, coordination & delivery <span>Example photo · Unsplash · branding edited</span></figcaption></figure>
         </div>
       </section>
 
@@ -69,6 +73,13 @@ function HomePage() {
         ['03', 'Build with care', 'Our team coordinates the work and keeps you informed along the way.'],
         ['04', 'Enjoy the result', 'Careful finishing and a considered handover bring it all together.'],
       ].map(([number, title, text]) => <div key={number} className="process-step"><span>{number}</span><h3>{title}</h3><p>{text}</p></div>)}</div></div></section>
+
+      <section className="project-faq section-space"><div className="page-width"><div className="section-heading"><div><p className="eyebrow">Before you begin</p><h2>Your project questions.</h2></div><p className="heading-aside">Straightforward answers to help you take the next step.</p></div><div className="faq-list">
+        <details><summary>Where does DryStone work?</summary><p>We work with homeowners, builders and design teams across New South Wales. Share your project location when you enquire so we can confirm availability.</p></details>
+        <details><summary>Can you manage a complete build or a single service?</summary><p>Both. We offer residential construction and end-to-end project management, as well as coordination for individual trade packages such as windows, timber doors, flooring, cladding and rendering.</p></details>
+        <details><summary>What should I include in a quote request?</summary><p>Include your project location, the service you need, the approximate scope and your preferred timeframe. Mention whether plans and measurements are available so we can discuss the next steps.</p></details>
+        <details><summary>Do you install tall timber doors?</summary><p>Our wooden door service includes 2.4-metre internal doors and 3-metre pivot entrances with flush cladding. We review the opening, door specifications and hardware requirements for each installation.</p></details>
+      </div></div></section>
 
       <section className="enquiry-section page-width"><p className="eyebrow">Let’s build something lasting</p><div><h2>Your next chapter<br />starts here.</h2><div><p>A new home, a fresh finish, or a project ready to take shape.<br />We’d love to hear what you have in mind.</p><Link to="/contact" className="btn-primary">Discuss your project <ArrowUpRight size={18} /></Link></div></div></section>
     </div>

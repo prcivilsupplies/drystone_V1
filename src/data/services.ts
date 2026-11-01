@@ -162,14 +162,14 @@ const services: Service[] = [
       'Clear client communication and reporting',
       'Completion, defects and handover coordination',
     ],
-    image: '/images/project-management-planning.webp',
-    galleryImages: ['/images/project-management-planning.webp', '/images/project-management-coordination.webp'],
+    image: '/images/project-management-drystone.webp',
+    galleryImages: ['/images/project-management-drystone.webp', '/images/project-management-coordination.webp'],
     exampleNote: 'Representative photography illustrating planning and site coordination, rather than a record of a DryStone project.',
     imageExamples: [
       {
-        image: '/images/project-management-planning.webp',
+        image: '/images/project-management-drystone.webp',
         alt: 'A professional reviewing architectural drawings with a ruler and pencil',
-        caption: 'Planning & programme development',
+        caption: 'Planning & programme development — example photo with edited DryStone shirt branding',
         sourceName: 'Unsplash',
         sourceUrl: 'https://unsplash.com/photos/-FPFq_trr2Y',
       },
