@@ -2,6 +2,7 @@ import { Link } from '@tanstack/react-router'
 
 export function Footer() {
   const services = [
+    { label: 'Residential Construction', to: '/services/new-home-construction' },
     { label: 'Aluminium Windows', to: '/services/aluminium-windows' },
     { label: 'Concrete Flooring', to: '/services/flooring' },
     { label: 'Wall Cladding', to: '/services/wall-cladding' },
@@ -29,6 +30,7 @@ export function Footer() {
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="shrink-0 text-[#e67e22]">
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
               </svg>
+              <span>Serving NSW, Australia</span>
             </div>
           </div>
 

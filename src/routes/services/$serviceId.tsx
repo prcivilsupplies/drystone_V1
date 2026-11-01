@@ -148,7 +148,7 @@ function ServicePage() {
             {otherServices.map((s) => (
               <Link
                 key={s.id}
-                to={`/services/${s.id}`}
+                to="/services/$serviceId" params={{ serviceId: s.id }}
                 className="service-card group relative overflow-hidden rounded-2xl block min-h-[200px]"
               >
                 <img
