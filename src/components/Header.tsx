@@ -28,6 +28,12 @@ export function Header() {
     setMenuOpen(false)
   }, [currentPath])
 
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => { if (event.key === 'Escape') setMenuOpen(false) }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [])
+
   const navLinks = [
     { label: 'Home', to: '/' },
     { label: 'Contact', to: '/contact' },
@@ -41,7 +47,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${headerBg}`}
+      className={`site-header fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${headerBg}`}
       style={{ transition: 'background 0.4s ease, box-shadow 0.4s ease' }}
     >
       <div className="max-w-[1456px] mx-auto px-6 lg:px-12">
@@ -51,7 +57,7 @@ export function Header() {
             <img
               src="/images/logo-new.png"
               alt="DryStone Construction"
-              className="h-18 lg:h-22 xl:h-26 w-auto object-contain"
+              className="header-logo w-auto object-contain"
             />
           </Link>
 

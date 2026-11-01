@@ -8,6 +8,7 @@ export interface Service {
   features: string[]
   image: string
   galleryImages: string[]
+  exampleNote?: string
   imageExamples?: {
     image: string
     alt: string
@@ -57,6 +58,7 @@ const services: Service[] = [
       'Hinge, handle and lock installation',
       'External threshold and weather-seal fitting',
     ],
+    exampleNote: 'Door style inspiration. Example photographs from Cedar West, not DryStone projects; pictured dimensions are not verified.',
     image: '/images/wooden-pivot-door-example.webp',
     galleryImages: [
       '/images/wooden-pivot-door-example.webp',
@@ -160,8 +162,25 @@ const services: Service[] = [
       'Clear client communication and reporting',
       'Completion, defects and handover coordination',
     ],
-    image: '/images/project-management-wireframe.svg',
-    galleryImages: ['/images/project-management-wireframe.svg'],
+    image: '/images/project-management-planning.webp',
+    galleryImages: ['/images/project-management-planning.webp', '/images/project-management-coordination.webp'],
+    exampleNote: 'Representative photography illustrating planning and site coordination, rather than a record of a DryStone project.',
+    imageExamples: [
+      {
+        image: '/images/project-management-planning.webp',
+        alt: 'A professional reviewing architectural drawings with a ruler and pencil',
+        caption: 'Planning & programme development',
+        sourceName: 'Unsplash',
+        sourceUrl: 'https://unsplash.com/photos/-FPFq_trr2Y',
+      },
+      {
+        image: '/images/project-management-coordination.webp',
+        alt: 'Construction professionals coordinating work on an active building site',
+        caption: 'On-site coordination & progress review',
+        sourceName: 'Existing site photography',
+        sourceUrl: '',
+      },
+    ],
     color: '#b85f1b',
   },
   {

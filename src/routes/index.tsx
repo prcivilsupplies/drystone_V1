@@ -7,8 +7,8 @@ export const Route = createFileRoute('/')({ component: HomePage })
 
 const slides = [
   { image: '/images/new-home-exterior.jpeg', eyebrow: 'Residential construction · NSW', title: 'Considered design.\nExceptional builds.', text: 'From the first plans to the final details. Bring your vision home with DryStone.', link: '/services/new-home-construction', label: 'Explore new homes', caption: 'Architectural & residential construction' },
-  { image: '/images/new-home-interior.jpeg', eyebrow: 'Details that make the difference', title: 'Beautiful spaces.\nBuilt to last.', text: 'Windows, flooring, cladding and rendering. Specialist workmanship at every stage.', link: '/#services', label: 'Discover our services', caption: 'Specialist building systems & finishes' },
-  { image: '/images/project-management-site.jpg', eyebrow: 'From planning to handover', title: 'Your vision.\nOur commitment.', text: 'Practical project management. Clear communication. One team bringing it all together.', link: '/services/project-management', label: 'Explore project management', caption: 'Construction project management' },
+  { image: '/images/new-home-interior.jpeg', eyebrow: 'Details that make the difference', title: 'Beautiful spaces.\nBuilt to last.', text: 'Windows, timber doors, flooring and finishes. Specialist workmanship at every stage.', link: '/#services', label: 'Discover our services', caption: 'Specialist building systems & finishes' },
+  { image: '/images/project-management-planning.webp', eyebrow: 'From planning to handover', title: 'Your vision.\nOur commitment.', text: 'Practical project management. Clear communication. One team bringing it all together.', link: '/services/project-management', label: 'Explore project management', caption: 'Construction project management' },
 ]
 
 function HomePage() {
@@ -45,7 +45,7 @@ function HomePage() {
         <div id="service-collection" className="service-collection">
           {[...services].sort((a, b) => (a.id === 'new-home-construction' ? -1 : b.id === 'new-home-construction' ? 1 : 0)).map((service, i) => (
             <Link to="/services/$serviceId" params={{ serviceId: service.id }} key={service.id} className={`collection-card ${i === 0 ? 'collection-featured' : ''}`}>
-              <div className="collection-image"><img src={service.id === 'project-management' ? '/images/project-management-site.jpg' : service.image} alt={service.shortName} loading="lazy" /><span className="collection-number">0{i + 1}</span><span className="collection-open"><ArrowUpRight size={23} /></span>{i === 0 && <span className="collection-tag">From concept to completion</span>}</div>
+              <div className="collection-image"><img src={service.image} alt={service.shortName} loading="lazy" /><span className="collection-number">0{i + 1}</span><span className="collection-open"><ArrowUpRight size={23} /></span>{i === 0 && <span className="collection-tag">From concept to completion</span>}</div>
               <div className="collection-caption"><div><h3>{service.shortName}</h3><p>{service.tagline}</p>{service.imageExamples && <p>Example photo · {service.imageExamples[0].sourceName}</p>}</div><ArrowUpRight size={20} /></div>
             </Link>
           ))}
@@ -53,6 +53,13 @@ function HomePage() {
       </section>
 
       <section className="story-section"><div className="page-width story-grid"><div className="story-image"><img src="/images/new-home-interior.jpeg" alt="Light-filled residential interior with carefully finished architectural details" loading="lazy" /><div className="image-label"><span>THE DRYSTONE APPROACH</span><ArrowUpRight size={20} /></div></div><div className="story-copy"><p className="eyebrow">Built around you</p><h2>A great build starts<br />with the right people.</h2><p>We bring practical site experience and a considered approach to every project. From custom residential homes to specialist trade packages, we focus on the details that make a lasting difference.</p><p>Working closely with homeowners, builders and design teams across NSW, we coordinate the people, materials and craftsmanship that turn your plans into a place to call home.</p><div className="story-values"><span><Plus size={16} /> Clear communication</span><span><Plus size={16} /> Quality workmanship</span><span><Plus size={16} /> Hands-on coordination</span></div><Link to="/contact" className="text-link">Meet your building partner <ArrowRight size={18} /></Link></div></div></section>
+
+      <section className="management-feature section-space">
+        <div className="page-width management-feature-grid">
+          <div className="management-feature-copy"><p className="eyebrow">From the first plan to the final key</p><h2>Your project.<br /><em>In considered hands.</em></h2><p>Every build brings people, plans and decisions together. We coordinate the moving parts so you can see where your project stands and what comes next.</p><div className="management-options"><span>End-to-end residential management</span><span>Individual trade & service packages</span></div><Link to="/services/$serviceId" params={{ serviceId: 'project-management' }} className="text-link">Discover project management <ArrowUpRight size={18} /></Link></div>
+          <figure><img src="/images/project-management-planning.webp" alt="Construction professional reviewing architectural plans" loading="lazy" /><figcaption>Planning, coordination & delivery <span>Example photography · Unsplash</span></figcaption></figure>
+        </div>
+      </section>
 
       <section className="featured-build page-width section-space"><div className="section-heading"><div><p className="eyebrow">Spaces to call home</p><h2>From vision to reality.</h2></div><Link to="/services/$serviceId" params={{ serviceId: "new-home-construction" }} className="text-link">Explore residential construction <ArrowRight size={17} /></Link></div><Link to="/services/$serviceId" params={{ serviceId: "new-home-construction" }} className="project-banner"><img src="/images/new-home-exterior.jpeg" alt="Contemporary DryStone residential home exterior" loading="lazy" /><div className="project-banner-copy"><div><p className="eyebrow light">Residential construction</p><h3>Thoughtfully built.<br />Beautifully finished.</h3></div><span className="project-circle"><ArrowUpRight size={28} /></span></div></Link></section>
 

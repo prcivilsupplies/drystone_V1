@@ -3,9 +3,9 @@ import services from '@/data/services'
 
 export function Footer() {
 
-
   return (
-    <footer className="bg-[#0f2e1a] text-white">
+    <footer className="site-footer bg-[#0f2e1a] text-white">
+      <div className="footer-signature page-width"><span>DRYSTONE</span><p>Considered construction.<br />Lasting craftsmanship.</p></div>
       {/* Main footer */}
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
@@ -90,7 +90,7 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-align-center">
           <p className="text-xs text-white/30 text-align-center">
-            © 2023 PR Civil Supplies Pty Ltd Trading as DryStone. All rights reserved.
+            © {new Date().getFullYear()} PR Civil Supplies Pty Ltd Trading as DryStone. All rights reserved.
           </p>
         </div>
       </div>

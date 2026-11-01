@@ -10,12 +10,12 @@ export const Route = createRootRoute({
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         title:
-          'DryStone Construction | Aluminium Windows, Concrete Flooring & Cladding',
+          'DryStone Construction | Considered Homes & Specialist Building Services',
       },
       {
         name: 'description',
         content:
-          'Premium Aluminium Windows, XCEM/HEBEL/AAC Concrete Flooring, XCEM/HEBEL/AAC Wall Cladding & Professional Rendering. Supply & Installation by DryStone.',
+          'Custom residential construction, project management, timber door installation, windows, flooring, cladding and rendering across NSW. Discuss your project with DryStone.',
       },
     ],
   }),
@@ -29,8 +29,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <Header />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
         <Scripts />
       </body>

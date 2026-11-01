@@ -64,38 +64,34 @@ function ContactPage() {
   }
 
   return (
-    <div>
+    <div className="contact-page premium-page">
       {/* Hero */}
       <section
-        className="relative pt-32 pb-16 lg:pt-40 lg:pb-20 overflow-hidden"
+        className="contact-hero relative overflow-hidden"
         style={{
-          background: `linear-gradient(135deg, rgba(15,46,26,0.95) 0%, rgba(26,77,46,0.9) 100%), center/cover no-repeat`,
+          background: 'var(--forest-dark)',
         }}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <div className="page-width">
           <span className="section-label">Get in Touch</span>
           <h1
             className="mt-3 text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-tight"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
           >
-            Request a
+            Let's talk about
             <br />
-            <span style={{ color: 'var(--amber)' }}>Free Quote</span>
+            <em>your next chapter.</em>
           </h1>
-          <p className="mt-4 text-white/60 max-w-md leading-relaxed">
+          <p className="mt-4 text-white/80 max-w-md leading-relaxed">
             Tell us about your project and we'll get back to you with a clear,
             no-obligation quote — usually within 24 hours.
           </p>
         </div>
-        <div
-          className="absolute bottom-0 left-0 right-0 h-16 bg-[#f5f2ed]"
-          style={{ clipPath: 'polygon(0 100%, 100% 100%, 100% 0)' }}
-        />
+        <img className="contact-hero-image" src="/images/new-home-interior.jpeg" alt="Thoughtfully finished residential interior" />
       </section>
 
       {/* Main */}
-      <section className="py-16 lg:py-24" style={{ background: '#f5f2ed' }}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+      <section className="contact-main section-space" style={{ background: '#f5f2ed' }}>
+        <div className="page-width">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16 items-start">
             {/* Contact details */}
             <div className="lg:col-span-1 space-y-8">
@@ -103,7 +99,6 @@ function ContactPage() {
                 <span className="section-label">Direct Contact</span>
                 <h2
                   className="mt-3 text-2xl lg:text-3xl font-black text-[#0f2e1a]"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
                 >
                   We'd love to hear from you
                 </h2>
@@ -161,13 +156,12 @@ function ContactPage() {
               ) : (
                 <form
                   onSubmit={handleSubmit}
-                  className="bg-white rounded-2xl p-8 lg:p-10 shadow-sm"
+                  className="enquiry-form bg-white p-8 lg:p-10"
                 >
                   <h2
                     className="text-2xl font-black text-[#0f2e1a] mb-6"
-                    style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
                   >
-                    Project Enquiry Form
+                    Tell us about your project
                   </h2>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
@@ -181,7 +175,7 @@ function ContactPage() {
                         name="name"
                         value={form.name}
                         onChange={handleChange}
-                        placeholder="John Smith"
+                        placeholder="Your full name"
                         className={`form-input ${errors.name ? 'border-red-400' : ''}`}
                       />
                     </FormField>
@@ -205,7 +199,7 @@ function ContactPage() {
                         name="email"
                         value={form.email}
                         onChange={handleChange}
-                        placeholder="john@example.com"
+                        placeholder="you@example.com"
                         className="form-input"
                       />
                     </FormField>
@@ -289,14 +283,14 @@ function FormField({
   children: React.ReactNode
 }) {
   return (
-    <div className="flex flex-col gap-1.5">
-      <label className="text-xs font-semibold tracking-wider uppercase text-[#4a4a46]">
+    <label className="flex flex-col gap-2">
+      <span className="text-xs font-semibold tracking-wider uppercase text-[#4a4a46]">
         {label}
         {required && <span className="text-[#e67e22] ml-1">*</span>}
-      </label>
+      </span>
       {children}
-      {error && <p className="text-red-500 text-xs">{error}</p>}
-    </div>
+      {error && <span role="alert" className="text-red-500 text-xs">{error}</span>}
+    </label>
   )
 }
 
@@ -313,7 +307,6 @@ function SuccessMessage() {
       </div>
       <h2
         className="text-3xl font-black text-[#0f2e1a] mb-3"
-        style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
       >
         Enquiry Sent!
       </h2>

@@ -1,5 +1,7 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router'
 import services from '@/data/services'
+import { ProjectJourney } from '@/components/ProjectJourney'
+import { ArrowUpRight } from 'lucide-react'
 
 export const Route = createFileRoute('/services/$serviceId')({
   component: ServicePage,
@@ -8,6 +10,7 @@ export const Route = createFileRoute('/services/$serviceId')({
     if (!service) throw notFound()
     return { service }
   },
+  head: ({ params }) => ({ meta: [{ title: `${services.find((service) => service.id === params.serviceId)?.shortName ?? 'Services'} | DryStone Construction` }] }),
 })
 
 function ServicePage() {
@@ -17,15 +20,15 @@ function ServicePage() {
   )
 
   return (
-    <div>
+    <div className="service-page premium-page">
       {/* Hero */}
       <section
-        className="relative min-h-[60vh] flex items-end overflow-hidden pt-24"
+        className="service-hero relative flex items-end overflow-hidden"
         style={{
-          background: `linear-gradient(to bottom, rgba(15,46,26,0.75) 0%, rgba(15,46,26,0.9) 100%), url('${service.image}') center/cover no-repeat`,
+          background: `linear-gradient(to bottom, rgba(15,46,26,0.3) 0%, rgba(15,46,26,0.88) 100%), url('${service.image}') center/cover no-repeat`,
         }}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 pb-16 lg:pb-24 w-full">
+        <div className="page-width service-hero-content">
           <div className="max-w-2xl">
             <Link
               to="/"
@@ -39,7 +42,6 @@ function ServicePage() {
             <span className="section-label">    DryStone Construction</span>
             <h1
               className="mt-3 text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-tight"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
             >
               {service.name}
             </h1>
@@ -48,38 +50,35 @@ function ServicePage() {
             </p>
           </div>
         </div>
-        <div
-          className="absolute bottom-0 left-0 right-0 h-16 bg-white"
-          style={{ clipPath: 'polygon(0 100%, 100% 100%, 100% 0)' }}
-        />
+
       </section>
 
       {/* Content */}
-      <section className="py-16 lg:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+      <section className="service-details section-space">
+        <div className="page-width">
+          <div className="service-detail-grid">
             {/* Gallery */}
             <div className="space-y-4">
               {service.imageExamples ? (
                 <>
                   <p className="text-sm leading-relaxed text-[#5a5a56]">
-                    Door style inspiration. These example photographs are from Cedar West, not DryStone projects; pictured dimensions are not verified.
+                    {service.exampleNote}
                   </p>
                   {service.imageExamples.map((example) => (
-                    <figure key={example.image} className="overflow-hidden rounded-xl border border-[#e0dbd4]">
+                    <figure key={example.image} className="overflow-hidden rounded-none border border-[#e0dbd4]">
                       <img src={example.image} alt={example.alt} loading="lazy" className="block w-full h-auto" />
                       <figcaption className="bg-[#f5f2ed] px-5 py-4 text-sm text-[#0f2e1a]">
                         <p>{example.caption}</p>
-                        <a href={example.sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-1 inline-block text-xs underline underline-offset-4">
+                        {example.sourceUrl && <a href={example.sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-1 inline-block text-xs underline underline-offset-4">
                           Photo source: {example.sourceName}
-                        </a>
+                        </a>}
                       </figcaption>
                     </figure>
                   ))}
                 </>
               ) : (
                 <>
-              <div className="rounded-2xl overflow-hidden aspect-[4/3]">
+              <div className="rounded-none overflow-hidden aspect-[4/3]">
                 <img
                   src={service.image}
                   alt={service.name}
@@ -89,7 +88,7 @@ function ServicePage() {
               {service.galleryImages.length > 1 && (
                 <div className="grid grid-cols-2 gap-4">
                   {service.galleryImages.slice(1).map((img, i) => (
-                    <div key={i} className="rounded-xl overflow-hidden aspect-[4/3]">
+                    <div key={i} className="rounded-none overflow-hidden aspect-[4/3]">
                       <img
                         src={img}
                         alt={`${service.name} gallery ${i + 2}`}
@@ -108,7 +107,6 @@ function ServicePage() {
               <span className="section-label">Service Detail</span>
               <h2
                 className="mt-3 text-3xl lg:text-5xl font-black text-[#0f2e1a] leading-tight"
-                style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
               >
                 {service.shortName}
               </h2>
@@ -119,7 +117,7 @@ function ServicePage() {
 
               <h3
                 className="text-lg font-bold text-[#0f2e1a] mb-4"
-                style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+
               >
                 What's Included
               </h3>
@@ -153,13 +151,14 @@ function ServicePage() {
         </div>
       </section>
 
+      {service.id === 'project-management' && <ProjectJourney />}
+
       {/* Other Services */}
-      <section className="py-16 lg:py-20" style={{ background: '#f5f2ed' }}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+      <section className="related-services section-space" style={{ background: '#f5f2ed' }}>
+        <div className="page-width">
           <span className="section-label">Also Available</span>
           <h2
             className="mt-3 text-3xl lg:text-5xl font-black text-[#0f2e1a] mb-10"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
           >
             {service.id === 'new-home-construction'
               ? 'Specialist Services'
@@ -170,7 +169,7 @@ function ServicePage() {
               <Link
                 key={s.id}
                 to="/services/$serviceId" params={{ serviceId: s.id }}
-                className="service-card group relative overflow-hidden rounded-2xl block min-h-[200px]"
+                className="service-card group relative overflow-hidden rounded-none block min-h-[200px]"
               >
                 <img
                   src={s.image}
@@ -181,7 +180,6 @@ function ServicePage() {
                 <div className="absolute inset-0 p-5 flex flex-col justify-end z-10">
                   <h3
                     className="font-black text-white text-xl"
-                    style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
                   >
                     {s.name}
                   </h3>
@@ -202,16 +200,15 @@ function ServicePage() {
 
       {/* CTA */}
       <section
-        className="py-16 lg:py-20 text-center"
+        className="service-enquiry section-space"
         style={{ background: 'linear-gradient(135deg, #0f2e1a 0%, #1a4d2e 100%)' }}
       >
-        <div className="max-w-xl mx-auto px-6">
+        <div className="page-width">
           <span className="section-label">Ready to Start?</span>
           <h2
             className="mt-3 text-3xl lg:text-5xl font-black text-white"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
           >
-            Request a Free Quote
+            A considered start.<br /><em>A lasting result.</em>
           </h2>
           <p className="mt-4 text-white/60 text-sm leading-relaxed">
             Get in touch with the DryStone team — we'll assess your project and
@@ -219,7 +216,7 @@ function ServicePage() {
           </p>
           <div className="mt-8">
             <Link to="/contact" className="btn-primary text-base px-8 py-4">
-              Contact Us Today
+              Discuss your project <ArrowUpRight size={18} />
             </Link>
           </div>
         </div>
