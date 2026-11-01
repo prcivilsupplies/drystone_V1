@@ -34,6 +34,27 @@ const services: Service[] = [
     color: '#1a4d2e',
   },
   {
+    id: 'wooden-door-installation',
+    name: 'Internal & External Wooden Door Installation',
+    shortName: 'Wooden Door Installation',
+    tagline: 'A welcoming entrance. A precise finish.',
+    description:
+      'Professional installation of internal and external wooden doors for new homes and renovations.',
+    longDescription:
+      'DryStone installs internal and external wooden doors with careful attention to fit, alignment and everyday use. From room doors to front entrances, we measure the opening, fit and hang the door, and install the agreed hinges, handles and locking hardware. For external doors, we also consider thresholds and weather seals to suit the entrance. Whether you are completing a new build or replacing existing doors, our team focuses on a neat finish and smooth operation.',
+    features: [
+      'Internal timber room doors',
+      'External wooden entry doors',
+      'New builds and replacement installations',
+      'Measuring, fitting and door alignment',
+      'Hinge, handle and lock installation',
+      'External threshold and weather-seal fitting',
+    ],
+    image: '/images/wooden-doors.svg',
+    galleryImages: ['/images/wooden-doors.svg'],
+    color: '#1a4d2e',
+  },
+  {
     id: 'flooring',
     name: 'Hebel / XCEM / AAC / Concrete Flooring',
     shortName: 'Concrete Flooring',

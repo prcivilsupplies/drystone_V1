@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
+  <title>Internal and external wooden door illustration</title>
+  <defs>
+    <linearGradient id="wall" x2="1200" y2="900" gradientUnits="userSpaceOnUse"><stop stop-color="#f5f2ed"/><stop offset="1" stop-color="#d4cfc8"/></linearGradient>
+    <linearGradient id="timber" x1="0" x2="280" gradientUnits="userSpaceOnUse"><stop stop-color="#825d3d"/><stop offset=".5" stop-color="#ac8055"/><stop offset="1" stop-color="#906844"/></linearGradient>
+    <pattern id="grain" width="22" height="600" patternUnits="userSpaceOnUse"><path d="M4 0V600M14 0C5 150 22 300 14 600" stroke="#513a27" stroke-opacity=".17" stroke-width="2"/></pattern>
+  </defs>
+  <path fill="url(#wall)" d="M0 0H1200V900H0z"/>
+  <path fill="#c5beb3" d="M0 742H1200V900H0z"/>
+  <path stroke="#b4ada3" d="M0 820H1200M600 742L780 900M185 742L40 900"/>
+  <path fill="#0f2e1a" d="M684 130H1046V748H684z"/>
+  <path fill="#5c4835" d="M164 178H494V748H164z"/>
+  <path fill="#f5f2ed" d="M174 188H484V742H174z"/>
+  <g transform="translate(194 204)">
+    <path fill="url(#timber)" d="M0 0H270V538H0z"/>
+    <path fill="url(#grain)" d="M0 0H270V538H0z"/>
+    <path stroke="#68482d" stroke-width="4" d="M28 28H242V237H28zM28 267H242V509H28z"/>
+    <path stroke="#c69c6d" stroke-width="2" d="M35 35H235V230H35zM35 274H235V502H35z"/>
+    <path fill="#2e2e2a" d="M224 245H232V281H224zM228 252H260V260H228z"/>
+  </g>
+  <g transform="translate(712 154)">
+    <path fill="url(#timber)" d="M0 0H306V588H0z"/>
+    <path fill="url(#grain)" d="M0 0H306V588H0z"/>
+    <path stroke="#68482d" stroke-width="2" d="M38 0V588M76 0V588M114 0V588M152 0V588M190 0V588M228 0V588M266 0V588"/>
+    <path fill="#2e2e2a" d="M255 220H265V390H255z"/>
+    <path fill="#d4cfc8" d="M257 226H263V384H257z"/>
+  </g>
+  <path fill="#1a4d2e" d="M1060 656C1034 605 1055 560 1079 542C1091 578 1096 622 1077 656C1084 604 1117 590 1141 588C1134 622 1107 645 1077 663C1051 648 1024 632 1018 601C1044 605 1060 629 1060 656Z"/>
+  <path fill="#f5f2ed" d="M1033 661H1112L1101 744H1044z"/>
+  <path fill="#0f2e1a" fill-opacity=".12" d="M164 748H494L540 780H192zM684 748H1046L1090 780H719z"/>
+</svg>

@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useState } from 'react'
+import serviceData from '@/data/services'
 
 export const Route = createFileRoute('/contact')({
   component: ContactPage,
@@ -26,10 +27,7 @@ function ContactPage() {
   const [errors, setErrors] = useState<Record<string, string>>({})
 
   const services = [
-    'Aluminium Windows Supply & Install',
-    'Hebel / XCEM / AAC / Concrete Flooring',
-    'Hebel / AAC / Concrete Wall Cladding',
-    'Professional Rendering',
+    ...serviceData.map((service) => service.name),
     'Multiple Services',
     'General Enquiry',
   ]

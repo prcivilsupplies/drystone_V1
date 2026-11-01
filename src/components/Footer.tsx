@@ -1,14 +1,8 @@
 import { Link } from '@tanstack/react-router'
+import services from '@/data/services'
 
 export function Footer() {
-  const services = [
-    { label: 'Residential Construction', to: '/services/new-home-construction' },
-    { label: 'Aluminium Windows', to: '/services/aluminium-windows' },
-    { label: 'Concrete Flooring', to: '/services/flooring' },
-    { label: 'Wall Cladding', to: '/services/wall-cladding' },
-    { label: 'Professional Rendering', to: '/services/rendering' },
-    { label: 'Project Management', to: '/services/project-management' },
-  ]
+
 
   return (
     <footer className="bg-[#0f2e1a] text-white">
@@ -39,13 +33,14 @@ export function Footer() {
             <h4 className="section-label mb-5">Our Services</h4>
             <ul className="space-y-3">
               {services.map((s) => (
-                <li key={s.to}>
+                <li key={s.id}>
                   <Link
-                    to={s.to}
+                    to="/services/$serviceId"
+                    params={{ serviceId: s.id }}
                     className="text-sm text-white/60 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
                   >
                     <span className="w-4 h-px bg-[#e67e22] group-hover:w-6 transition-all duration-200" />
-                    {s.label}
+                    {s.shortName}
                   </Link>
                 </li>
               ))}
