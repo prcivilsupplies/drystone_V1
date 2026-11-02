@@ -1,23 +1,17 @@
-import { HeadContent, Outlet, Scripts, createRootRoute } from '@tanstack/react-router'
+import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import '../styles.css'
+import { organizationSchema } from '@/lib/seo'
 
 export const Route = createRootRoute({
   head: () => ({
     meta: [
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      {
-        title:
-          'DryStone Construction | Aluminium Windows, Concrete Flooring & Cladding',
-      },
-      {
-        name: 'description',
-        content:
-          'Premium Aluminium Windows, XCEM/HEBEL/AAC Concrete Flooring, XCEM/HEBEL/AAC Wall Cladding & Professional Rendering. Supply & Installation by DryStone.',
-      },
     ],
+    scripts: [organizationSchema],
+    links: [{ rel: 'preload', href: '/fonts/michroma-400.ttf', as: 'font', type: 'font/ttf', crossOrigin: 'anonymous' }],
   }),
   shellComponent: RootDocument,
 })
@@ -29,8 +23,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <Header />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
         <Scripts />
       </body>

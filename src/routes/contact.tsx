@@ -1,35 +1,32 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useState } from 'react'
+import serviceData from '@/data/services'
+import { pageSeo } from '@/lib/seo'
 
 export const Route = createFileRoute('/contact')({
   component: ContactPage,
-  head: () => ({
-    meta: [
-      {
-        title: 'Contact DryStone Construction | Free Quote',
-      },
-    ],
+  validateSearch: (search: Record<string, unknown>): { service?: string } => ({
+    service: typeof search.service === 'string' && serviceData.some((item) => item.id === search.service) ? search.service : undefined,
   }),
+  head: () => pageSeo({ title: 'Request a Construction Quote in NSW | DryStone', description: 'Tell DryStone about your NSW building project. Enquire about residential construction, project management or specialist trade installation. Call 0481 003 030.', path: '/contact' }),
 })
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error'
 
 function ContactPage() {
+  const search = Route.useSearch()
   const [formState, setFormState] = useState<FormState>('idle')
   const [form, setForm] = useState({
     name: '',
     phone: '',
     email: '',
-    service: '',
+    service: serviceData.find((item) => item.id === search.service)?.name ?? '',
     message: '',
   })
   const [errors, setErrors] = useState<Record<string, string>>({})
 
   const services = [
-    'Aluminium Windows Supply & Install',
-    'Hebel / XCEM / AAC / Concrete Flooring',
-    'Hebel / AAC / Concrete Wall Cladding',
-    'Professional Rendering',
+    ...serviceData.map((service) => service.name),
     'Multiple Services',
     'General Enquiry',
   ]
@@ -51,6 +48,7 @@ function ContactPage() {
     >
   ) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    if (formState === 'error') setFormState('idle')
     if (errors[e.target.name]) {
       setErrors((prev) => ({ ...prev, [e.target.name]: '' }))
     }
@@ -60,54 +58,61 @@ function ContactPage() {
     e.preventDefault()
     if (!validate()) return
     setFormState('submitting')
-    // Simulate submission
-    await new Promise((r) => setTimeout(r, 1200))
-    setFormState('success')
+    const values = new FormData(e.currentTarget as HTMLFormElement)
+    values.set('source-page', window.location.pathname)
+    const params = new URLSearchParams(window.location.search)
+    for (const key of ['source', 'medium', 'campaign']) values.set(`utm-${key}`, params.get(`utm_${key}`) ?? '')
+    try {
+      const response = await fetch('/__forms.html', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(Array.from(values.entries()).map(([key, value]) => [key, String(value)])).toString(),
+      })
+      if (!response.ok) throw new Error('Submission not accepted')
+      setFormState('success')
+    } catch {
+      setFormState('error')
+    }
   }
 
   return (
-    <div>
+    <div className="contact-page premium-page">
       {/* Hero */}
       <section
-        className="relative pt-32 pb-16 lg:pt-40 lg:pb-20 overflow-hidden"
+        className="contact-hero relative overflow-hidden"
         style={{
-          background: `linear-gradient(135deg, rgba(15,46,26,0.95) 0%, rgba(26,77,46,0.9) 100%), center/cover no-repeat`,
+          background: 'var(--forest-dark)',
         }}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <span className="section-label">Get in Touch</span>
+        <div className="page-width">
+          <span className="section-label">Get in touch</span>
           <h1
             className="mt-3 text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-tight"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
           >
-            Request a
+            Let’s discuss
             <br />
-            <span style={{ color: 'var(--amber)' }}>Free Quote</span>
+            <em>your project.</em>
           </h1>
-          <p className="mt-4 text-white/60 max-w-md leading-relaxed">
+          <p className="mt-4 text-white/80 max-w-md leading-relaxed">
             Tell us about your project and we'll get back to you with a clear,
             no-obligation quote — usually within 24 hours.
           </p>
         </div>
-        <div
-          className="absolute bottom-0 left-0 right-0 h-16 bg-[#f5f2ed]"
-          style={{ clipPath: 'polygon(0 100%, 100% 100%, 100% 0)' }}
-        />
+        <img className="contact-hero-image" src="/images/new-home-interior.jpeg" alt="Thoughtfully finished residential interior" />
       </section>
 
       {/* Main */}
-      <section className="py-16 lg:py-24" style={{ background: '#f5f2ed' }}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+      <section className="contact-main section-space" style={{ background: '#f5f2ed' }}>
+        <div className="page-width">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16 items-start">
             {/* Contact details */}
             <div className="lg:col-span-1 space-y-8">
               <div>
-                <span className="section-label">Direct Contact</span>
+                <span className="section-label">Direct contact</span>
                 <h2
                   className="mt-3 text-2xl lg:text-3xl font-black text-[#0f2e1a]"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
                 >
-                  We'd love to hear from you
+                  Speak with our team
                 </h2>
                 <div className="w-10 h-1 bg-[#e67e22] mt-4" />
               </div>
@@ -137,7 +142,7 @@ function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <div className="text-xs font-semibold tracking-widest uppercase text-[#8a8880] mb-0.5">
+                      <div className="text-xs font-semibold tracking-normal text-[#8a8880] mb-0.5">
                         {item.label}
                       </div>
                       {item.href ? (
@@ -162,36 +167,48 @@ function ContactPage() {
                 <SuccessMessage />
               ) : (
                 <form
+                  name="project-enquiry"
+                  method="POST"
+                  action="/__forms.html"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
                   onSubmit={handleSubmit}
-                  className="bg-white rounded-2xl p-8 lg:p-10 shadow-sm"
+                  className="enquiry-form bg-white p-8 lg:p-10"
                 >
+                  <input type="hidden" name="form-name" value="project-enquiry" />
+                  <input type="hidden" name="source-page" value="/contact" />
+                  <input type="hidden" name="utm-source" value="" />
+                  <input type="hidden" name="utm-medium" value="" />
+                  <input type="hidden" name="utm-campaign" value="" />
+                  <p hidden><label>Leave this empty <input name="bot-field" tabIndex={-1} autoComplete="off" /></label></p>
                   <h2
                     className="text-2xl font-black text-[#0f2e1a] mb-6"
-                    style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
                   >
-                    Project Enquiry Form
+                    Your project details
                   </h2>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
                     <FormField
-                      label="Full Name"
+                      label="Full name"
                       required
                       error={errors.name}
                     >
                       <input
                         type="text"
                         name="name"
+                        autoComplete="name"
                         value={form.name}
                         onChange={handleChange}
-                        placeholder="John Smith"
+                        placeholder="Your full name"
                         className={`form-input ${errors.name ? 'border-red-400' : ''}`}
                       />
                     </FormField>
 
-                    <FormField label="Phone Number" error={errors.contact}>
+                    <FormField label="Phone number" error={errors.contact}>
                       <input
                         type="tel"
                         name="phone"
+                        autoComplete="tel"
                         value={form.phone}
                         onChange={handleChange}
                         placeholder="04XX XXX XXX"
@@ -201,18 +218,19 @@ function ContactPage() {
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
-                    <FormField label="Email Address">
+                    <FormField label="Email address">
                       <input
                         type="email"
                         name="email"
+                        autoComplete="email"
                         value={form.email}
                         onChange={handleChange}
-                        placeholder="john@example.com"
+                        placeholder="you@example.com"
                         className="form-input"
                       />
                     </FormField>
 
-                    <FormField label="Service Required" required error={errors.service}>
+                    <FormField label="Service required" required error={errors.service}>
                       <select
                         name="service"
                         value={form.service}
@@ -229,7 +247,7 @@ function ContactPage() {
                     </FormField>
                   </div>
 
-                  <FormField label="Project Details" required error={errors.message}>
+                  <FormField label="Project details" required error={errors.message}>
                     <textarea
                       name="message"
                       value={form.message}
@@ -244,6 +262,7 @@ function ContactPage() {
                     <p className="text-red-500 text-xs mt-1 mb-4">{errors.contact}</p>
                   )}
 
+                  {formState === 'error' && <p role="alert" className="form-error">We couldn’t send your enquiry. Your details are still here; please try again, or call <a href="tel:+61481003030">0481 003 030</a>.</p>}
                   <button
                     type="submit"
                     disabled={formState === 'submitting'}
@@ -258,7 +277,7 @@ function ContactPage() {
                       </>
                     ) : (
                       <>
-                        Send Enquiry
+                        Send enquiry
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                           <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
                         </svg>
@@ -267,7 +286,7 @@ function ContactPage() {
                   </button>
 
                   <p className="text-xs text-[#8a8880] mt-4 text-center">
-                    We'll get back to you within 24 hours. No spam, ever.
+                    Your details are used to respond to your project enquiry.
                   </p>
                 </form>
               )}
@@ -291,20 +310,20 @@ function FormField({
   children: React.ReactNode
 }) {
   return (
-    <div className="flex flex-col gap-1.5">
-      <label className="text-xs font-semibold tracking-wider uppercase text-[#4a4a46]">
+    <label className="flex flex-col gap-2">
+      <span className="text-xs font-semibold tracking-normal text-[#4a4a46]">
         {label}
         {required && <span className="text-[#e67e22] ml-1">*</span>}
-      </label>
+      </span>
       {children}
-      {error && <p className="text-red-500 text-xs">{error}</p>}
-    </div>
+      {error && <span role="alert" className="text-red-500 text-xs">{error}</span>}
+    </label>
   )
 }
 
 function SuccessMessage() {
   return (
-    <div className="bg-white rounded-2xl p-10 shadow-sm flex flex-col items-center text-center">
+    <div role="status" className="bg-white rounded-2xl p-10 shadow-sm flex flex-col items-center text-center">
       <div
         className="w-16 h-16 rounded-full flex items-center justify-center mb-5"
         style={{ background: '#1a4d2e' }}
@@ -315,13 +334,12 @@ function SuccessMessage() {
       </div>
       <h2
         className="text-3xl font-black text-[#0f2e1a] mb-3"
-        style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
       >
-        Enquiry Sent!
+        Enquiry sent
       </h2>
       <p className="text-[#5a5a56] max-w-sm leading-relaxed text-sm">
         Thanks for reaching out. The DryStone team will review your project
-        details and be in touch within 24 hours.
+        details and be in touch. For anything urgent, call 0481 003 030.
       </p>
     </div>
   )

@@ -8,6 +8,14 @@ export interface Service {
   features: string[]
   image: string
   galleryImages: string[]
+  exampleNote?: string
+  imageExamples?: {
+    image: string
+    alt: string
+    caption: string
+    sourceName: string
+    sourceUrl: string
+  }[]
   color: string
 }
 
@@ -31,6 +39,47 @@ const services: Service[] = [
     ],
     image: '/images/windows.png',
     galleryImages: ['/images/windows.png', '/images/windows1.png'],
+    color: '#1a4d2e',
+  },
+  {
+    id: 'wooden-door-installation',
+    name: 'Internal & External Wooden Door Installation',
+    shortName: 'Wooden Door Installation',
+    tagline: 'A welcoming entrance. A precise finish.',
+    description:
+      'Professional installation of internal and external wooden doors for new homes and renovations.',
+    longDescription:
+      'DryStone installs internal and external wooden doors with careful attention to fit, alignment and everyday use. Our service includes 2.4-metre-high internal doors and 3-metre-high pivot entry doors with flush cladding, with fitting requirements reviewed for each opening. We measure the opening, fit and hang the door, and install the agreed hinges, handles and locking hardware. For external doors, we also consider thresholds and weather seals to suit the entrance. Whether you are completing a new build or replacing existing doors, our team focuses on a neat finish and smooth operation.',
+    features: [
+      '2.4-metre-high internal timber doors',
+      '3-metre-high pivot entry doors with flush cladding',
+      'New builds and replacement installations',
+      'Measuring, fitting and door alignment',
+      'Hinge, handle and lock installation',
+      'External threshold and weather-seal fitting',
+    ],
+    exampleNote: 'Door style inspiration. Example photographs from Cedar West, not DryStone projects; pictured dimensions are not verified.',
+    image: '/images/wooden-pivot-door-example.webp',
+    galleryImages: [
+      '/images/wooden-pivot-door-example.webp',
+      '/images/wooden-internal-door-example.webp',
+    ],
+    imageExamples: [
+      {
+        image: '/images/wooden-pivot-door-example.webp',
+        alt: 'Tall dark timber pivot entrance with horizontal cladding aligned across the door and surrounding wall',
+        caption: 'Flush-clad pivot entrance — style example',
+        sourceName: 'Cedar West',
+        sourceUrl: 'https://cedarwest.com.au/timber-pivot-doors',
+      },
+      {
+        image: '/images/wooden-internal-door-example.webp',
+        alt: 'Residential entrance interior with a large timber entry door and a natural timber internal door on the right',
+        caption: 'Timber internal door and entry detailing — style example',
+        sourceName: 'Cedar West',
+        sourceUrl: 'https://cedarwest.com.au/timber-pivot-doors',
+      },
+    ],
     color: '#1a4d2e',
   },
   {
@@ -113,8 +162,25 @@ const services: Service[] = [
       'Clear client communication and reporting',
       'Completion, defects and handover coordination',
     ],
-    image: '/images/project-management-wireframe.svg',
-    galleryImages: ['/images/project-management-wireframe.svg'],
+    image: '/images/project-management-drystone.webp',
+    galleryImages: ['/images/project-management-drystone.webp', '/images/project-management-coordination.webp'],
+    exampleNote: 'Representative photography illustrating planning and site coordination, rather than a record of a DryStone project.',
+    imageExamples: [
+      {
+        image: '/images/project-management-drystone.webp',
+        alt: 'A professional reviewing architectural drawings with a ruler and pencil',
+        caption: 'Planning & programme development — example photo with edited DryStone shirt branding',
+        sourceName: 'Unsplash',
+        sourceUrl: 'https://unsplash.com/photos/-FPFq_trr2Y',
+      },
+      {
+        image: '/images/project-management-coordination.webp',
+        alt: 'Construction professionals coordinating work on an active building site',
+        caption: 'On-site coordination & progress review',
+        sourceName: 'Existing site photography',
+        sourceUrl: '',
+      },
+    ],
     color: '#b85f1b',
   },
   {

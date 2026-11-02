@@ -1,16 +1,11 @@
 import { Link } from '@tanstack/react-router'
+import services from '@/data/services'
 
 export function Footer() {
-  const services = [
-    { label: 'Aluminium Windows', to: '/services/aluminium-windows' },
-    { label: 'Concrete Flooring', to: '/services/flooring' },
-    { label: 'Wall Cladding', to: '/services/wall-cladding' },
-    { label: 'Professional Rendering', to: '/services/rendering' },
-    { label: 'Project Management', to: '/services/project-management' },
-  ]
 
   return (
-    <footer className="bg-[#0f2e1a] text-white">
+    <footer className="site-footer bg-[#0f2e1a] text-white">
+      <div className="footer-signature page-width"><span>DRYSTONE</span><p>Considered construction.<br />Lasting craftsmanship.</p></div>
       {/* Main footer */}
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
@@ -29,21 +24,23 @@ export function Footer() {
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="shrink-0 text-[#e67e22]">
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
               </svg>
+              <span>Serving NSW, Australia</span>
             </div>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="section-label mb-5">Our Services</h4>
+            <h4 className="section-label mb-5">Our services</h4>
             <ul className="space-y-3">
               {services.map((s) => (
-                <li key={s.to}>
+                <li key={s.id}>
                   <Link
-                    to={s.to}
+                    to="/services/$serviceId"
+                    params={{ serviceId: s.id }}
                     className="text-sm text-white/60 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
                   >
                     <span className="w-4 h-px bg-[#e67e22] group-hover:w-6 transition-all duration-200" />
-                    {s.label}
+                    {s.shortName}
                   </Link>
                 </li>
               ))}
@@ -52,7 +49,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="section-label mb-5">Get In Touch</h4>
+            <h4 className="section-label mb-5">Get in touch</h4>
             <ul className="space-y-4">
               <li>
                 <a
@@ -81,7 +78,7 @@ export function Footer() {
                   to="/contact"
                   className="mt-2 btn-primary text-xs px-4 py-2.5 inline-flex"
                 >
-                  Request a Quote
+                  Request a quote
                 </Link>
               </li>
             </ul>
@@ -93,7 +90,7 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-align-center">
           <p className="text-xs text-white/30 text-align-center">
-            © 2023 PR Civil Supplies Pty Ltd Trading as DryStone. All rights reserved.
+            © {new Date().getFullYear()} PR Civil Supplies Pty Ltd Trading as DryStone. All rights reserved.
           </p>
         </div>
       </div>
